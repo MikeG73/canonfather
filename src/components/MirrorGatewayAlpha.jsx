@@ -11,7 +11,6 @@ export default function MirrorGatewayAlpha() {
   const [glyphMessage, setGlyphMessage] = useState("");
   const [glyphHistory, setGlyphHistory] = useState([]);
   const particleCanvasRef = useRef(null);
-
   const backgroundRef = useRef(null);
 
   const seedPrompts = [
@@ -21,7 +20,6 @@ export default function MirrorGatewayAlpha() {
     "What haven’t you forgiven yourself for?",
     "If your shadow spoke, what would it say?"
   ];
-
   const seedPrompt = seedPrompts[Math.floor(Math.random() * seedPrompts.length)];
 
   useEffect(() => {
@@ -126,6 +124,58 @@ export default function MirrorGatewayAlpha() {
     avatar === '🌸 The Healer' ? '#ffb6c1' :
     avatar === '🔥 The Catalyst' ? '#ff5722' :
     '#00ffff';
+
+  useEffect(() => {
+    const graffitiLines = [
+      "You can't fake canon.",
+      "Narrative law is not a suggestion.",
+      "Built for myth. Licensed for war.",
+      "The first engine to remember your soul.",
+      "Canon remembers what you forgot.",
+      "Flush twice for symbolic override.",
+      "Memory is a battlefield.",
+      "The Engine is watching.",
+      "He flushed... and the light came."
+    ];
+
+    const ghostColors = ["fuchsia", "red", "lime", "aqua", "white"];
+    const graffitiCount = 7 + Math.floor(Math.random() * 4);
+
+    function spawnGhostTag(i) {
+      setTimeout(() => {
+        const tag = document.createElement("div");
+        tag.classList.add("ghost-tag");
+
+        if (Math.random() < 0.05) {
+          tag.innerText = "⚡ Echo Glyph: 'Truth burns where fiction hides.'";
+          tag.style.color = 'gold';
+          tag.style.textShadow = "0 0 6px white, 0 0 12px gold";
+        } else {
+          const text = graffitiLines[Math.floor(Math.random() * graffitiLines.length)];
+          const color = ghostColors[Math.floor(Math.random() * ghostColors.length)];
+          tag.innerText = text;
+          tag.style.color = color;
+          tag.style.setProperty("--ghost-color", color);
+        }
+
+        tag.style.top = `${Math.random() * 85}%`;
+        tag.style.left = `${Math.random() * 85}%`;
+        tag.style.setProperty("--rotate", `${Math.floor(Math.random() * 30 - 15)}deg`);
+        tag.style.fontSize = `${Math.random() * 20 + 16}px`;
+        tag.style.position = "absolute";
+
+        const parent = backgroundRef.current || document.body;
+        parent.appendChild(tag);
+
+        setTimeout(() => tag.classList.add("fadeout"), 10000);
+        setTimeout(() => tag.remove(), 12000);
+      }, i * 800);
+    }
+
+    for (let i = 0; i < graffitiCount; i++) {
+      spawnGhostTag(i);
+    }
+  }, []);
 
   return (
     <div
