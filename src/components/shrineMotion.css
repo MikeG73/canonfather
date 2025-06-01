@@ -1,0 +1,75 @@
+.shrine-background {
+ background-size: cover;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.shrine-overlay {
+  background: rgba(0, 0, 0, 0.7);
+  padding: 3rem;
+  border-radius: 20px;
+  box-shadow: 0 0 30px #0ff;
+  max-width: 800px;
+  width: 90%;
+  color: #0f0;
+  animation: glowPulse 6s ease-in-out infinite;
+}
+
+@keyframes glowPulse {
+  0%, 100% {
+    box-shadow: 0 0 20px #0ff;
+  }
+  50% {
+    box-shadow: 0 0 40px #0ff;
+  }
+}
+
+.shrine-title {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.shrine-seed {
+  font-style: italic;
+  margin-bottom: 1rem;
+  color: #aaa;
+}
+
+.shrine-input {
+  width: 100%;
+  padding: 0.8rem;
+  background: #111;
+  color: #0f0;
+  border: 1px solid #0f0;
+  border-radius: 6px;
+  font-family: monospace;
+  margin-bottom: 1rem;
+}
+
+.shrine-button {
+  background: #0f0;
+  color: #000;
+  padding: 0.5rem 1rem;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.shrine-response,
+.shrine-message,
+.shrine-log {
+  margin-top: 1.5rem;
+  background: #111;
+  padding: 1rem;
+  border-radius: 10px;
+}
+
+.shrine-points,
+.shrine-avatar {
+  margin-top: 1rem;
+  font-weight: bold;
+}
