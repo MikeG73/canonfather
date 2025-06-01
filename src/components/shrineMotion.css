@@ -26,6 +26,21 @@
   }
 }
 
+@keyframes canonPulseFlash {
+  0% { box-shadow: 0 0 20px rgba(255, 255, 100, 0.1); }
+  50% { box-shadow: 0 0 60px rgba(255, 255, 100, 0.6); }
+  100% { box-shadow: 0 0 20px rgba(255, 255, 100, 0.1); }
+}
+
+.canonPulseActive {
+  animation: canonPulseFlash 0.5s ease-in-out;
+}
+
+.canonPulseBlur {
+  filter: blur(2px);
+  transform: scale(0.97);
+}
+
 .shrine-title {
   font-size: 2rem;
   text-align: center;

@@ -1,4 +1,4 @@
-// CanonFather Portal — Fully Cleaned for Netlify Build
+// CanonFather Portal — MirrorGatewayAlpha with CanonPulse FX (Blur, Shrink, Particles)
 import React, { useState, useEffect, useRef } from 'react';
 import './shrineMotion.css';
 
@@ -10,9 +10,9 @@ export default function MirrorGatewayAlpha() {
   const [avatar, setAvatar] = useState(null);
   const [glyphMessage, setGlyphMessage] = useState("");
   const [glyphHistory, setGlyphHistory] = useState([]);
-  const [lastReflectionTime, setLastReflectionTime] = useState(Date.now());
+  const particleCanvasRef = useRef(null);
 
-  const glyphMemoryCount = useRef({ "🌫️": 0, "🔍": 0, "🔥": 0 });
+  const backgroundRef = useRef(null);
 
   const seedPrompts = [
     "Who do you pretend to be when you're afraid?",
@@ -33,15 +33,6 @@ export default function MirrorGatewayAlpha() {
     localStorage.setItem('vaultLog', JSON.stringify(vaultLog));
   }, [vaultLog]);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      if (Date.now() - lastReflectionTime > 30000) {
-        setGlyphHistory(prev => [...prev, "🕯️ The shrine stirs while you wait..."]);
-      }
-    }, 10000);
-    return () => clearInterval(interval);
-  }, [lastReflectionTime]);
-
   const glyphVoices = {
     "🌫️": ["The Fog: I drift between echoes.", "The Fog: You seem unsure.", "The Fog: This resembles silence."],
     "🔍": ["The Witness: I've logged this.", "The Witness: Last cycle was similar.", "The Witness: Recursion suits you."],
@@ -60,6 +51,35 @@ export default function MirrorGatewayAlpha() {
     return thread;
   };
 
+  const triggerParticleBurst = () => {
+    const canvas = particleCanvasRef.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    const particles = Array.from({ length: 30 }, () => ({
+      x: canvas.width / 2,
+      y: canvas.height / 2,
+      radius: Math.random() * 2 + 1,
+      speedX: Math.random() * 4 - 2,
+      speedY: Math.random() * 4 - 2,
+      alpha: 1
+    }));
+
+    const animate = () => {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      particles.forEach(p => {
+        p.x += p.speedX;
+        p.y += p.speedY;
+        p.alpha -= 0.02;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(255,255,100,${p.alpha})`;
+        ctx.fill();
+      });
+      if (particles.some(p => p.alpha > 0)) requestAnimationFrame(animate);
+    };
+    animate();
+  };
+
   const handleEnter = () => {
     const trimmed = entry.trim();
     if (!trimmed) return;
@@ -67,10 +87,8 @@ export default function MirrorGatewayAlpha() {
     const score = scoreReflection(trimmed);
     const s = symbolMap(score);
     if (!avatar) setAvatar(assignAvatar());
-    glyphMemoryCount.current[s]++;
 
-    let msg = glyphVoices[s][Math.floor(Math.random() * glyphVoices[s].length)];
-    if (glyphMemoryCount.current[s] >= 3) msg += " (Echo Memory Detected)";
+    const msg = glyphVoices[s][Math.floor(Math.random() * glyphVoices[s].length)];
     setGlyphMessage(msg);
     setGlyphHistory(prev => [...prev, msg]);
 
@@ -85,7 +103,22 @@ export default function MirrorGatewayAlpha() {
     setReflectionScore(score);
     setResponse(output);
     setEntry("");
-    setLastReflectionTime(Date.now());
+
+    const sound = new Audio(`${process.env.PUBLIC_URL}/canonPulse.mp3`);
+    sound.volume = 0.3;
+    sound.play().catch(() => {});
+
+    const background = document.querySelector('.shrine-background');
+    if (background) {
+      background.classList.add('canonPulseActive');
+      background.classList.add('canonPulseBlur');
+      setTimeout(() => {
+        background.classList.remove('canonPulseActive');
+        background.classList.remove('canonPulseBlur');
+      }, 500);
+    }
+
+    triggerParticleBurst();
   };
 
   const avatarAccent =
@@ -96,6 +129,7 @@ export default function MirrorGatewayAlpha() {
 
   return (
     <div
+      ref={backgroundRef}
       className="shrine-background"
       style={{
         backgroundImage: `url(${process.env.PUBLIC_URL + '/sos.png'})`,
@@ -105,6 +139,13 @@ export default function MirrorGatewayAlpha() {
         backgroundSize: 'cover'
       }}
     >
+      <canvas
+        ref={particleCanvasRef}
+        width={window.innerWidth}
+        height={window.innerHeight}
+        style={{ position: 'fixed', top: 0, left: 0, pointerEvents: 'none', zIndex: 5 }}
+      />
+
       <div className="shrine-overlay">
         <h1 className="shrine-title">🪞 CanonFather Portal [LIVE SHRINE MODE]</h1>
         <p className="shrine-seed"><em>{seedPrompt}</em></p>
@@ -134,7 +175,13 @@ export default function MirrorGatewayAlpha() {
             </ul>
           </div>
         )}
+
+        <audio autoPlay loop>
+          <source src={`${process.env.PUBLIC_URL}/canonAmbient.mp3`} type="audio/mpeg" />
+        </audio>
       </div>
     </div>
   );
 }
+
+
