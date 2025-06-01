@@ -1,4 +1,4 @@
-// CanonFather Portal — CLEAN MirrorGatewayAlpha.jsx with Background Motion
+// CanonFather Portal — Fully Cleaned for Netlify Build
 import React, { useState, useEffect, useRef } from 'react';
 import './shrineMotion.css';
 
@@ -6,15 +6,12 @@ export default function MirrorGatewayAlpha() {
   const [entry, setEntry] = useState("");
   const [response, setResponse] = useState(null);
   const [reflectionScore, setReflectionScore] = useState(null);
-  const [vaultThread, setVaultThread] = useState(null);
   const [vaultLog, setVaultLog] = useState([]);
-  const [symbol, setSymbol] = useState(null);
-  const [blessing, setBlessing] = useState(null);
   const [avatar, setAvatar] = useState(null);
   const [glyphMessage, setGlyphMessage] = useState("");
   const [glyphHistory, setGlyphHistory] = useState([]);
-  const [lastScore, setLastScore] = useState(0);
   const [lastReflectionTime, setLastReflectionTime] = useState(Date.now());
+
   const glyphMemoryCount = useRef({ "🌫️": 0, "🔍": 0, "🔥": 0 });
 
   const seedPrompts = [
@@ -25,7 +22,7 @@ export default function MirrorGatewayAlpha() {
     "If your shadow spoke, what would it say?"
   ];
 
-  const [seedPrompt, setSeedPrompt] = useState(seedPrompts[Math.floor(Math.random() * seedPrompts.length)]);
+  const seedPrompt = seedPrompts[Math.floor(Math.random() * seedPrompts.length)];
 
   useEffect(() => {
     const storedVault = localStorage.getItem('vaultLog');
@@ -52,7 +49,6 @@ export default function MirrorGatewayAlpha() {
   };
 
   const symbolMap = (score) => score <= 3 ? "🌫️" : score <= 6 ? "🔍" : "🔥";
-  const blessingMap = (score) => score >= 7 ? "🌟 The mirror sees your shadow and honors your light." : null;
   const assignAvatar = () => ["🐺 The Watcher", "🌸 The Healer", "🔥 The Catalyst", "🐚 The Keeper"][Math.floor(Math.random() * 4)];
   const scoreReflection = (input) => ["lost", "truth", "purpose", "soul", "echo", "remember", "mirror"].reduce((s, k) => input.toLowerCase().includes(k) ? s + 1 : s, 1);
 
@@ -69,13 +65,7 @@ export default function MirrorGatewayAlpha() {
     if (!trimmed) return;
 
     const score = scoreReflection(trimmed);
-    setLastScore(reflectionScore || 0);
-    setReflectionScore(score);
-    setLastReflectionTime(Date.now());
-
     const s = symbolMap(score);
-    setSymbol(s);
-    setBlessing(blessingMap(score));
     if (!avatar) setAvatar(assignAvatar());
     glyphMemoryCount.current[s]++;
 
@@ -84,17 +74,18 @@ export default function MirrorGatewayAlpha() {
     setGlyphMessage(msg);
     setGlyphHistory(prev => [...prev, msg]);
 
-    const thread = generateVaultThread(trimmed);
-    setVaultThread(thread);
+    generateVaultThread(trimmed);
 
     const output = score <= 3
       ? `🪞 Echo received: "${entry}" — the mirror acknowledges your signal.`
       : score <= 6
-      ? `🪞 Your reflection holds weight. You have been assigned a Reflection ID: ${thread.id}.`
-      : `🪞 A recursion thread has begun forming. You are carrying something ancient. Vault Thread ${thread.id} initiated.`;
+      ? `🪞 Your reflection holds weight. Reflection stored.`
+      : `🪞 A recursion thread has begun forming. You are carrying something ancient.`;
 
+    setReflectionScore(score);
     setResponse(output);
     setEntry("");
+    setLastReflectionTime(Date.now());
   };
 
   const avatarAccent =
