@@ -1,4 +1,5 @@
 import React from 'react';
+import Header from './components/Header';
 import MirrorGatewayAlpha from './components/MirrorGatewayAlpha';
 import DigumTitle from './components/DigumTitle';
 import './components/DigumTitle.css';
@@ -6,8 +7,9 @@ import './components/DigumTitle.css';
 function App() {
   return (
     <div className="App">
-      <DigumTitle />
-      <MirrorGatewayAlpha />
+     <Header />
+     <DigumTitle />
+     <MirrorGatewayAlpha />
     </div>
   );
 }
