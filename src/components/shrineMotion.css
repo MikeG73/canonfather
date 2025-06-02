@@ -1,4 +1,4 @@
-* CanonSpray™ Visual Layer */
+*/* CanonSpray™ Visual Layer — Clean Build-Verified Version */
 
 .ghost-tag {
   position: absolute;
@@ -9,6 +9,7 @@
   font-weight: 400;
   z-index: 10;
   user-select: none;
+  white-space: nowrap;
 }
 
 .ghost-tag.fadeout {
@@ -27,6 +28,8 @@
   overflow: hidden;
   background-color: #0a0a0a;
   color: white;
+  width: 100vw;
+  height: 100vh;
 }
 
 .shrine-overlay {
@@ -48,5 +51,52 @@
   color: #ccc;
 }
 
-/* Optional: load graffiti font */
-@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+.shrine-input {
+  padding: 0.5rem;
+  font-size: 1rem;
+  margin-top: 1rem;
+  width: 100%;
+  max-width: 500px;
+  border-radius: 6px;
+  border: none;
+}
+
+.shrine-button {
+  margin-top: 1rem;
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  background-color: #ff0080;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(255, 0, 128, 0.6);
+}
+
+.shrine-response,
+.shrine-message {
+  margin-top: 1.2rem;
+  font-size: 1rem;
+  color: #f0f0f0;
+}
+
+.shrine-points,
+.shrine-avatar {
+  margin-top: 1rem;
+  font-size: 0.95rem;
+  font-style: italic;
+  color: #ccc;
+}
+
+.shrine-log {
+  margin-top: 2rem;
+  font-size: 0.95rem;
+  color: #aaa;
+}
+
+.shrine-log ul {
+  list-style: disc;
+  margin-left: 1.2rem;
+}
+
+/* ✅ Font loaded via index.html. Do NOT @import here. */
