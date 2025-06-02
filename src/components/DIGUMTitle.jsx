@@ -1,7 +1,7 @@
 import React from 'react';
 import './digum.css';
 
-export default function DIGUMTitle() {
+export default function DigumTitle() {
   return (
     <div className="digum-title-wrapper">
       <h1 className="digum-title">

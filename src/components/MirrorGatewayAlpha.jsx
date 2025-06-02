@@ -131,8 +131,10 @@ useEffect(() => {
     if (!canvas) return;
     const ctx = canvas.getContext('2d');
     const particles = Array.from({ length: 30 }, () => ({
-      x: canvas.width / 2,
-      y: canvas.height / 2,
+     const muzzleX = backgroundRef.current?.offsetWidth * 0.72;
+const muzzleY = backgroundRef.current?.offsetHeight * 0.53;
+x: muzzleX,
+y: muzzleY,
       radius: Math.random() * 2 + 1,
       speedX: Math.random() * 4 - 2,
       speedY: Math.random() * 4 - 2,
