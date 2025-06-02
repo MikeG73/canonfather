@@ -1,41 +1,39 @@
 .digum-title-wrapper {
-  text-align: center;
-  margin-top: 4rem;
+  background-color: black;
   color: gold;
-  font-family: 'Press Start 2P', monospace;
+  padding: 2rem;
+  text-align: center;
+  font-family: 'Courier New', monospace;
 }
 
 .digum-title {
-  font-size: 1rem;
+  font-size: 1.4rem;
   line-height: 2rem;
-  text-shadow: 0 0 6px gold, 0 0 2px #ff00ff;
+  text-shadow: 0 0 12px #FFD700;
 }
 
 .highlighted {
-  font-size: 1.8rem;
   color: #FF69B4;
-  animation: paradoxPulse 3s infinite;
+  font-size: 2rem;
+  animation: pulse 2s infinite;
 }
 
 .subtext {
-  display: block;
-  font-size: 1rem;
   color: cyan;
-  text-shadow: 0 0 10px cyan;
-  margin-top: 1rem;
+  font-size: 1rem;
+  margin-top: 0.5rem;
+  display: block;
 }
 
 .stamp {
-  display: block;
-  font-size: 0.7rem;
-  margin-top: 2rem;
+  margin-top: 1rem;
   color: #777;
+  font-size: 0.75rem;
   letter-spacing: 0.1em;
-  text-transform: uppercase;
 }
 
-@keyframes paradoxPulse {
-  0% { opacity: 0.5; transform: scale(1); }
-  50% { opacity: 1; transform: scale(1.1); }
-  100% { opacity: 0.5; transform: scale(1); }
+@keyframes pulse {
+  0% { opacity: 0.5; }
+  50% { opacity: 1; }
+  100% { opacity: 0.5; }
 }
