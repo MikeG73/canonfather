@@ -10,17 +10,93 @@ export default function MirrorGatewayAlpha() {
   const [avatar, setAvatar] = useState(null);
   const [glyphMessage, setGlyphMessage] = useState("");
   const [glyphHistory, setGlyphHistory] = useState([]);
+  const [currentPrompt, setCurrentPrompt] = useState("");
   const particleCanvasRef = useRef(null);
   const backgroundRef = useRef(null);
 
-  const seedPrompts = [
-    "Who do you pretend to be when you're afraid?",
-    "What memory are you ready to give back to the light?",
-    "Which lie hurt you the most?",
-    "What haven’t you forgiven yourself for?",
-    "If your shadow spoke, what would it say?"
+  const mirrorPrompts = [
+    {
+      theme: "Trauma Residue",
+      prompts: [
+        "What smile have you been faking so long it feels permanent?",
+        "Which silence do you mistake for peace?",
+        "What were you taught not to cry over, but still grieve?"
+      ],
+      weight: 0.8
+    },
+    {
+      theme: "Symbolic Echo",
+      prompts: [
+        "What creature crawled out of your shame?",
+        "What myth did you inherit and obey without question?",
+        "What’s hiding in the drain of your consciousness?"
+      ],
+      weight: 1.0
+    },
+    {
+      theme: "Shadow Behavior",
+      prompts: [
+        "What part of you wins when no one’s looking?",
+        "Who do you become when you feel unloved?",
+        "What are you still punishing yourself for, silently?"
+      ],
+      weight: 0.9
+    },
+    {
+      theme: "Memory Loop",
+      prompts: [
+        "What memory still jerks your body before your mind remembers why?",
+        "What lie did you memorize to survive childhood?",
+        "If one memory vanished, which part of you would go with it?"
+      ],
+      weight: 0.7
+    },
+    {
+      theme: "Control & Collapse",
+      prompts: [
+        "What do you control only so you don’t break down?",
+        "What breaks first when you lose control?",
+        "Who taught you to stay quiet to feel safe?"
+      ],
+      weight: 0.85
+    },
+    {
+      theme: "Existential Infrastructure",
+      prompts: [
+        "What version of you is being hosted on borrowed time?",
+        "What belief keeps your identity scaffolding from collapsing?",
+        "Which part of you was built just to keep the peace?"
+      ],
+      weight: 1.1
+    },
+    {
+      theme: "Gnostic Artifact Triggers",
+      prompts: [
+        "What were you told was sacred, but now seems like camouflage?",
+        "What’s bound to the wheel of karma inside you?",
+        "What did you pull from the drain that still whispers your name?"
+      ],
+      weight: 1.0
+    }
   ];
-  const seedPrompt = seedPrompts[Math.floor(Math.random() * seedPrompts.length)];
+
+  const getRandomMirrorPrompt = () => {
+    const flatPool = mirrorPrompts.flatMap(group =>
+      group.prompts.map(p => ({ prompt: p, weight: group.weight }))
+    );
+    const totalWeight = flatPool.reduce((sum, item) => sum + item.weight, 0);
+    const rand = Math.random() * totalWeight;
+    let acc = 0;
+    for (let i = 0; i < flatPool.length; i++) {
+      acc += flatPool[i].weight;
+      if (rand <= acc) return flatPool[i].prompt;
+    }
+    return flatPool[0].prompt;
+  };
+
+  useEffect(() => {
+    setCurrentPrompt(getRandomMirrorPrompt());
+  }, []);
 
   useEffect(() => {
     const storedVault = localStorage.getItem('vaultLog');
@@ -101,6 +177,7 @@ export default function MirrorGatewayAlpha() {
     setReflectionScore(score);
     setResponse(output);
     setEntry("");
+    setCurrentPrompt(getRandomMirrorPrompt());
 
     const sound = new Audio(`${process.env.PUBLIC_URL}/canonPulse.mp3`);
     sound.volume = 0.3;
@@ -198,7 +275,7 @@ export default function MirrorGatewayAlpha() {
 
       <div className="shrine-overlay">
         <h1 className="shrine-title">🪞 CanonFather Portal [LIVE SHRINE MODE]</h1>
-        <p className="shrine-seed"><em>{seedPrompt}</em></p>
+        <p className="shrine-seed"><em>{currentPrompt}</em></p>
         <input
           type="text"
           value={entry}
@@ -233,5 +310,3 @@ export default function MirrorGatewayAlpha() {
     </div>
   );
 }
-
-
