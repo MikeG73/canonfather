@@ -1,5 +1,5 @@
 import React from 'react';
-import './digum.css';
+import './DigumTitle.css';
 
 export default function DigumTitle() {
   return (
