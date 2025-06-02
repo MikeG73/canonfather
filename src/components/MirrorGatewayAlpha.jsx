@@ -94,9 +94,10 @@ export default function MirrorGatewayAlpha() {
     return flatPool[0].prompt;
   };
 
-  useEffect(() => {
-    setCurrentPrompt(getRandomMirrorPrompt());
-  }, []);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+useEffect(() => {
+  setCurrentPrompt(getRandomMirrorPrompt());
+}, []);
 
   useEffect(() => {
     const storedVault = localStorage.getItem('vaultLog');
