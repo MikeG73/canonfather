@@ -1,6 +1,6 @@
 import React from 'react';
 import KioskBackground from './components/KioskBackground';
-import CanonPortal from './components/CanonPortal';
+import CanonPortalPremierDemo from './components/CanonPortal_PremierDemo';
 import GenesisBlock from './components/GenesisBlock';
 import BlockCounter from './components/BlockCounter';
 
@@ -28,7 +28,7 @@ function App() {
 
       </div>
 
-      <CanonPortal />
+      <CanonPortalPremierDemo /> {/* ✅ ESLint-compliant, fully rendered */}
     </>
   );
 }

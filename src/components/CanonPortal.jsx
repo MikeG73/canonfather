@@ -4,6 +4,7 @@ import './CanonPortal.css';
 import { validateTruthkey } from '../utils/truthkey';
 import { logReflection } from './CanonLedger';
 import CanonMintFX from './CanonMintFX';
+import CanonTickerOOA from './CanonTickerOOA';
 
 const rawMessages = [
   "🔍 What lie hurt you the most?",
@@ -26,53 +27,6 @@ const ambientLorePool = [
   "🎙️ EchoLog #5-NOVA: 'This place remembers you.'",
   "💽 CanonFather's eye twitched at 03:37am. Logged."
 ];
-
-const CanonTicker = React.memo(function CanonTicker() {
-  const [isGlitching, setIsGlitching] = useState(false);
-  const [ambientMessages, setAmbientMessages] = useState([]);
-  const [overload, setOverload] = useState(false);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      const glitchNow = Math.random() < 0.07;
-      const loreNow = Math.random() < 0.4;
-      const timestamp = new Date().toLocaleTimeString();
-
-      let newMsg = '';
-      if (glitchNow) {
-        newMsg = `💀 GLYPHCORE ERROR: Canon breach @ ${new Date().toISOString()}`;
-      } else if (loreNow) {
-        const lore = ambientLorePool[Math.floor(Math.random() * ambientLorePool.length)];
-        newMsg = lore;
-        if (lore.includes("CanonNode 5")) {
-          setOverload(true);
-          setTimeout(() => setOverload(false), 8000);
-        }
-      } else {
-        newMsg = `📡 Shrine echo received at ${timestamp}`;
-      }
-
-      setAmbientMessages(prev => [...prev.slice(-50), newMsg]);
-      if (glitchNow) {
-        setIsGlitching(true);
-        setTimeout(() => setIsGlitching(false), 3000);
-      }
-    }, 12000);
-    return () => clearInterval(interval);
-  }, []);
-
-  const all = [...rawMessages, ...ambientMessages].sort(() => Math.random() - 0.5);
-
-  return (
-    <div className={`canon-ticker ${isGlitching ? 'ticker-glitch' : ''} ${overload ? 'ticker-overload' : ''}`}>
-      <div className="ticker-track">
-        {all.map((msg, i) => (
-          <span key={i} className="ticker-message">{msg}&nbsp;&nbsp;&nbsp;</span>
-        ))}
-      </div>
-    </div>
-  );
-});
 
 function validateReflectionMeaning(text) {
   const cleaned = text.trim();
@@ -158,7 +112,7 @@ function CanonPortal() {
 
   return (
     <>
-      <CanonTicker />
+      <CanonTickerOOA />
       <div className="portal-container">
         <CanonMintFX trigger={mintTriggered} />
         <div className="portal-title">CanonFather Shrine Interface</div>
@@ -166,7 +120,7 @@ function CanonPortal() {
           className="portal-input"
           type="text"
           value={input}
-          placeholder="🫣😭🤬🥹🤪😨🥳🤥    ...leave it all behind...         "
+          placeholder="😭🤬🥹🤪😨🥳 ...leave it all behind... 🤥😍😱😶😎😵‍💫🤣"
           onChange={(e) => setInput(e.target.value)}
         />
         {input && (
