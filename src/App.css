@@ -1,38 +1,56 @@
-.App {
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Courier New', monospace;
+  background-color: black;
+}
+
+.shrine-container {
+  max-width: 700px;
+  margin: 10vh auto;
+  background: rgba(0, 0, 0, 0.75);
+  border: 2px solid gold;
+  padding: 2rem;
   text-align: center;
+  color: gold;
+  border-radius: 10px;
+  box-shadow: 0 0 25px #FFD70088;
+  z-index: 10;
+  position: relative;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.shrine-title {
+  font-size: 1.8rem;
+  text-shadow: 0 0 10px #FFD700;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.shrine-divider {
+  margin: 1rem auto;
+  border: none;
+  height: 2px;
+  width: 100%;
+  background: gold;
+  box-shadow: 0 0 8px #FFD700;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.shrine-text p {
+  margin: 1rem 0;
+  font-size: 1.1rem;
 }
 
-.App-link {
-  color: #61dafb;
+.highlight {
+  color: #FF69B4;
+  text-shadow: 0 0 12px #FF69B4;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.subtext {
+  color: cyan;
+  font-style: italic;
 }
+
+.canon-stamp {
+  font-size: 0.8rem;
+  color: #999;
+  margin-top: 1.5rem;
+}
+
