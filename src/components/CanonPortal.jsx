@@ -77,7 +77,8 @@ const CanonTicker = React.memo(function CanonTicker() {
 function validateReflectionMeaning(text) {
   const cleaned = text.trim();
   const wordCount = cleaned.split(/\s+/).length;
-  const nonsensePattern = /^(?:[asdfjkl;]+|[a-z]{1,2}\d{3,}|[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]{5,})$/i;
+  const nonsensePattern = /^(?:[asdfjkl;]+|[a-z]{1,2}\d{3,}|[!@#$%^&*()_+\-=\\[\]{};':"|,.<>/?]{5,})$/i;
+
   return cleaned.length > 10 && wordCount >= 3 && !nonsensePattern.test(cleaned);
 }
 
