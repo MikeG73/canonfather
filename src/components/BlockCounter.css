@@ -1,0 +1,77 @@
+.block-reactor {
+  position: relative;
+  margin-top: 30px;
+  background: radial-gradient(circle, rgba(0,0,0,0.9), #0ff2);
+  padding: 20px;
+  border: 2px solid #0ff;
+  border-radius: 12px;
+  text-align: center;
+  color: #fff;
+  font-family: 'Courier New', monospace;
+  box-shadow: 0 0 20px #0ff, 0 0 60px #5ff5;
+  overflow: hidden;
+  z-index: 2;
+}
+
+.block-label {
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  color: #aff;
+  margin-bottom: 10px;
+  text-shadow: 0 0 6px #0ff;
+}
+
+.block-readout {
+  font-size: 2.5rem;
+  color: #fefefe;
+  text-shadow: 0 0 12px #f0f, 0 0 6px #ff5;
+  animation: flameUp 1s ease-in-out infinite alternate;
+}
+
+.block-hash {
+  background: linear-gradient(90deg, #0ff, #f0f, #ff0, #0ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.block-flare {
+  position: absolute;
+  top: -50%;
+  left: -25%;
+  width: 150%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.05), transparent 70%);
+  animation: flare 6s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes flameUp {
+  0% { text-shadow: 0 0 6px #f0f; transform: scale(1); }
+  100% { text-shadow: 0 0 24px #ff0; transform: scale(1.05); }
+}
+
+@keyframes flare {
+  0% { transform: rotate(0deg) scale(1); opacity: 0.1; }
+  50% { transform: rotate(180deg) scale(1.2); opacity: 0.3; }
+  100% { transform: rotate(360deg) scale(1); opacity: 0.1; }
+}
+
+.sos-burn {
+  position: absolute;
+  bottom: -20px;
+  right: -30px;
+  width: 100px;
+  opacity: 0.07;
+  transform: rotate(-12deg);
+  pointer-events: none;
+  filter: sepia(1) hue-rotate(-20deg) brightness(2) saturate(8);
+  animation: burnloop 3s ease-in-out infinite;
+}
+
+@keyframes burnloop {
+  0% { transform: rotate(-10deg) scale(1) translateY(0px); }
+  50% { transform: rotate(-15deg) scale(1.05) translateY(-3px); }
+  100% { transform: rotate(-10deg) scale(1) translateY(0px); }
+}

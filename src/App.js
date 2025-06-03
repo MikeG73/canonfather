@@ -1,14 +1,18 @@
 import React from 'react';
 import KioskBackground from './components/KioskBackground';
 import CanonPortal from './components/CanonPortal';
-import GenesisBlock from './components/GenesisBlock'; // 🧱 Add this
-import './components/GenesisBlock.css';               // 💅 Style glow
+import GenesisBlock from './components/GenesisBlock';
+import BlockCounter from './components/BlockCounter';
+
+import './components/GenesisBlock.css';
+import './components/BlockCounter.css';
 import './App.css';
 
 function App() {
   return (
     <>
       <KioskBackground />
+
       <div className="shrine-container">
         <h1 className="shrine-title">💠 DIGUM Reflective Mode Activated</h1>
         <hr className="shrine-divider" />
@@ -18,10 +22,12 @@ function App() {
           <p className="canon-stamp">– 🧠 B.I.D.E.T. Canon Engine [Y3K Edition]</p>
         </div>
 
-        {/* 🧱 INSERT GENESIS BLOCK HERE */}
+        {/* 🔷 CORE BLOCK ELEMENTS */}
         <GenesisBlock />
+        <BlockCounter /> {/* 🧱 LIVE BLOCK OUTPUT — SYMMETRICALLY CENTERED */}
 
       </div>
+
       <CanonPortal />
     </>
   );
