@@ -67,21 +67,20 @@ function shuffle(array) {
   return shuffled;
 }
 
-const shuffledMessages = shuffle([...rawMessages, ...extraMessages]);
-
 function CanonTicker({ extraMessages = [] }) {
-  const shuffledMessages = shuffle([...rawMessages, ...extraMessages]);
+  const combinedMessages = shuffle([...rawMessages, ...extraMessages]);
 
   return (
     <div className="canon-ticker">
       <div className="ticker-track">
-        {shuffledMessages.map((msg, i) => (
+        {combinedMessages.map((msg, i) => (
           <span key={i} className="ticker-message">{msg}&nbsp;&nbsp;&nbsp;</span>
         ))}
       </div>
     </div>
   );
 }
+
 
 export default function CanonPortal() {
   const [input, setInput] = useState('');
