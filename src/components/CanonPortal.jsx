@@ -1,4 +1,4 @@
-// CanonPortal.jsx (with Audio Integration)
+// CanonPortal.jsx (Shrine Intelligence Upgrade)
 import React, { useState, useEffect } from 'react';
 import './CanonPortal.css';
 import { validateTruthkey } from '../utils/truthkey';
@@ -74,19 +74,50 @@ const CanonTicker = React.memo(function CanonTicker() {
   );
 });
 
+function validateReflectionMeaning(text) {
+  const cleaned = text.trim();
+  const wordCount = cleaned.split(/\s+/).length;
+  const nonsensePattern = /^(?:[asdfjkl;]+|[a-z]{1,2}\d{3,}|[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]{5,})$/i;
+  return cleaned.length > 10 && wordCount >= 3 && !nonsensePattern.test(cleaned);
+}
+
 export default function CanonPortal() {
   const [input, setInput] = useState('');
   const [response, setResponse] = useState('');
   const [canonPoints, setCanonPoints] = useState(0);
   const [mintTriggered, setMintTriggered] = useState(false);
+  const [buttonShake, setButtonShake] = useState(false);
 
   useEffect(() => {
-    const ambient = new Audio('/canonAmbient.mp3');
-    ambient.volume = 0.8;
-    ambient.play().catch((err) => console.warn("Ambient audio play blocked:", err));
+    const playAmbient = () => {
+      const ambient = new Audio('/canonAmbient.mp3');
+      ambient.volume = 0.8;
+      ambient.play().catch((err) => console.warn("Ambient audio play blocked:", err));
+      window.removeEventListener('click', playAmbient);
+      window.removeEventListener('keydown', playAmbient);
+    };
+    window.addEventListener('click', playAmbient);
+    window.addEventListener('keydown', playAmbient);
+    return () => {
+      window.removeEventListener('click', playAmbient);
+      window.removeEventListener('keydown', playAmbient);
+    };
   }, []);
 
   const handleReflect = () => {
+    const isValidInput = validateReflectionMeaning(input);
+
+    if (!isValidInput) {
+      const buzzer = new Audio('/buzzer.mp3');
+      buzzer.volume = 0.8;
+      buzzer.play().catch(err => console.warn("Buzzer blocked:", err));
+
+      setResponse('🧠 The shrine rejects echoes. Speak a reflection.');
+      setButtonShake(true);
+      setTimeout(() => setButtonShake(false), 500);
+      return;
+    }
+
     const pulse = new Audio('/canonPulse.mp3');
     pulse.volume = 1.0;
     pulse.play().catch((err) => console.warn("Pulse audio play blocked:", err));
@@ -108,6 +139,8 @@ export default function CanonPortal() {
     setInput('');
   };
 
+  const buttonEnabled = validateReflectionMeaning(input);
+
   return (
     <>
       <CanonTicker />
@@ -121,7 +154,11 @@ export default function CanonPortal() {
           placeholder="Speak your reflection..."
           onChange={(e) => setInput(e.target.value)}
         />
-        <button className="portal-button" onClick={handleReflect}>
+        <button
+          className={`portal-button ${buttonShake ? 'shake' : ''} ${buttonEnabled ? 'active' : ''}`}
+          onClick={handleReflect}
+          disabled={!buttonEnabled}
+        >
           Reflect
         </button>
         {response && <div className="portal-response">{response}</div>}
