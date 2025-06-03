@@ -70,6 +70,8 @@ function shuffle(array) {
 const shuffledMessages = shuffle([...rawMessages, ...extraMessages]);
 
 function CanonTicker({ extraMessages = [] }) {
+  const shuffledMessages = shuffle([...rawMessages, ...extraMessages]);
+
   return (
     <div className="canon-ticker">
       <div className="ticker-track">
