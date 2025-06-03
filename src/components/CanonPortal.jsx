@@ -1,5 +1,5 @@
 // CanonPortal.jsx
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './CanonPortal.css';
 import { validateTruthkey } from '../utils/truthkey';
 import { logReflection } from './CanonLedger';
