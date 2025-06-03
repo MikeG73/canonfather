@@ -1,4 +1,4 @@
-/* CanonPortal.css — 3-Phase Shrine Threshold UI */
+/* CanonPortal.css — 3-Phase Button + BUSTED_LOGIC + Shrine Styling */
 
 .portal-container {
   padding: 2rem;
@@ -32,10 +32,10 @@
   background-color: #111;
   color: #666;
   border: 1px solid #444;
-  cursor: not-allowed;
   opacity: 0.3;
   pointer-events: none;
-  transition: all 0.4s ease;
+  transition: all 0.3s ease;
+  cursor: not-allowed;
 }
 
 .portal-button.phase-2 {
@@ -44,7 +44,7 @@
   color: #ffaa00;
   border-color: #ffaa00;
   cursor: pointer;
-  box-shadow: 0 0 5px #ffaa0044;
+  box-shadow: 0 0 6px #ffaa0044;
 }
 
 .portal-button.phase-3 {
@@ -52,8 +52,8 @@
   opacity: 1;
   color: #ffd700;
   border-color: #ffd700;
+  box-shadow: 0 0 12px #ffd700aa;
   cursor: pointer;
-  box-shadow: 0 0 12px #ffd70088;
 }
 
 .portal-button.phase-3::after {
@@ -71,7 +71,7 @@
 
 @keyframes pulse-ring {
   0% { opacity: 0.8; transform: scale(1); }
-  100% { opacity: 0; transform: scale(1.5); }
+  100% { opacity: 0; transform: scale(1.6); }
 }
 
 .portal-button.shake {
@@ -92,10 +92,35 @@
   font-style: italic;
 }
 
+.portal-response.busted {
+  color: #ff4444;
+  font-weight: bold;
+  animation: flicker 0.3s steps(2, start) infinite;
+  text-shadow: 0 0 4px red, 0 0 8px crimson;
+  white-space: pre-line;
+}
+
+@keyframes flicker {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
 .canon-footer {
   margin-top: 1rem;
   font-size: 0.9rem;
   color: #888;
+}
+
+.canon-ticker {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  background: #000;
+  font-family: monospace;
+  font-size: 0.9rem;
+  padding: 0.4rem;
+  color: #ffd700;
+  z-index: 9999;
 }
 
 .ticker-track {
@@ -112,18 +137,6 @@
 @keyframes scroll {
   from { transform: translateX(0); }
   to { transform: translateX(-100%); }
-}
-
-.canon-ticker {
-  width: 100%;
-  position: fixed;
-  bottom: 0;
-  background: #000;
-  font-family: monospace;
-  font-size: 0.9rem;
-  padding: 0.4rem;
-  color: #ffd700;
-  z-index: 9999;
 }
 
 .ticker-glitch {
