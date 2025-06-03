@@ -1,5 +1,5 @@
 import React from 'react';
-import sos from '../assets/sos.png';
+import sos from '../assets/sos.png'; // ✅ Works 100% in Create React App
 
 const style = {
   backgroundImage: `url(${sos})`,

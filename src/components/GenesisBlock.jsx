@@ -14,7 +14,7 @@ function generateHash(str) {
 
 export default function GenesisBlock() {
   const [timestamp, setTimestamp] = useState(null);
-  const [blockNumber, setBlockNumber] = useState(1);
+  const [blockNumber] = useState(1);
   const [hash, setHash] = useState('');
 
   useEffect(() => {
