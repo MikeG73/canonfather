@@ -1,4 +1,4 @@
-/* CanonPortal.css — 3-Phase Button + BUSTED_LOGIC + Shrine Styling */
+/* CanonPortal.css — Scroll + Glitch Visuals Patched */
 
 .portal-container {
   padding: 2rem;
@@ -111,42 +111,46 @@
   color: #888;
 }
 
+/* Ticker */
 .canon-ticker {
   width: 100%;
   position: fixed;
   bottom: 0;
   background: #000;
-  font-family: monospace;
+  font-family: 'Courier New', Courier, monospace;
   font-size: 0.9rem;
-  padding: 0.4rem;
+  padding: 0.4rem 0;
   color: #ffd700;
   z-index: 9999;
+  overflow: hidden;
+  border-top: 1px solid #333;
 }
 
 .ticker-track {
+  display: inline-block;
   white-space: nowrap;
-  overflow: hidden;
-  animation: scroll 200s linear infinite;
+  padding-left: 100%;
+  animation: ticker-scroll 200s linear infinite;
 }
 
 .ticker-message {
   display: inline-block;
-  padding-right: 2rem;
+  padding-right: 3rem;
 }
 
-@keyframes scroll {
-  from { transform: translateX(0); }
-  to { transform: translateX(-100%); }
+@keyframes ticker-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
 }
 
 .ticker-glitch {
-  background: #000;
+  background-color: #000;
   color: #00ff00;
-  text-shadow: 0 0 4px #00ff00;
-  animation: glitch-flicker 0.12s infinite alternate;
+  text-shadow: 0 0 6px #00ff00, 0 0 10px #00ff00;
+  animation: glitch-flicker 0.2s steps(2, jump-none) infinite alternate;
 }
 
 @keyframes glitch-flicker {
-  0% { opacity: 0.8; }
-  100% { opacity: 1; transform: skewX(1deg); }
+  0%   { opacity: 1; transform: translateX(0); }
+  100% { opacity: 0.5; transform: translateX(-1px); }
 }
