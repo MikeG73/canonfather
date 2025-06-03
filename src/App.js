@@ -1,17 +1,17 @@
-import Header from './components/Header';
 import React from 'react';
-import MirrorGatewayAlpha from './components/MirrorGatewayAlpha';
-import DigumTitle from './components/DigumTitle';
 import KioskBackground from './components/KioskBackground';
+import Header from './components/Header';
+import DigumTitle from './components/DigumTitle';
+import MirrorGatewayAlpha from './components/MirrorGatewayAlpha';
 
 function App() {
   return (
-    <div className="App">
+    <>
       <KioskBackground />
       <Header />
       <DigumTitle />
       <MirrorGatewayAlpha />
-    </div>
+    </>
   );
 }
 

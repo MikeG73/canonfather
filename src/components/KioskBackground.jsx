@@ -1,5 +1,5 @@
 import React from 'react';
-import sos from '../assets/sos.png'; // or adjust path
+import sos from '../assets/sos.png';
 
 const style = {
   backgroundImage: `url(${sos})`,
@@ -17,3 +17,4 @@ const style = {
 export default function KioskBackground() {
   return <div style={style}></div>;
 }
+
