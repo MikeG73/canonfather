@@ -1,0 +1,77 @@
+/* CanonPortal.css */
+
+.portal-container {
+  position: relative;
+  z-index: 2;
+  max-width: 600px;
+  margin: 12vh auto;
+  padding: 2rem;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(10px);
+  border: 2px solid gold;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
+  color: gold;
+  text-align: center;
+  font-family: 'Courier New', monospace;
+}
+
+.portal-title {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  text-shadow: 0 0 10px gold;
+}
+
+.portal-input {
+  width: 100%;
+  padding: 0.75rem;
+  font-size: 1rem;
+  background: black;
+  color: gold;
+  border: 1px solid gold;
+  border-radius: 6px;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.portal-button {
+  padding: 0.5rem 1.25rem;
+  background: gold;
+  color: black;
+  border: none;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+  box-shadow: 0 0 12px gold;
+  transition: transform 0.2s ease-in-out;
+}
+
+.portal-button:hover {
+  transform: scale(1.05);
+}
+
+.portal-response {
+  margin-top: 1rem;
+  font-style: italic;
+  color: cyan;
+  animation: echo 1.2s ease-in-out;
+}
+
+@keyframes echo {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+.canon-footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+  color: #aaa;
+  font-size: 0.8rem;
+}

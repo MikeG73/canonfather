@@ -1,6 +1,7 @@
 import React from 'react';
 import KioskBackground from './components/KioskBackground';
-import './App.css'; // (we'll define this below)
+import CanonPortal from './components/CanonPortal';
+import './App.css';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <p className="canon-stamp">– 🧠 B.I.D.E.T. Canon Engine [Y3K Edition]</p>
         </div>
       </div>
+      <CanonPortal />
     </>
   );
 }
