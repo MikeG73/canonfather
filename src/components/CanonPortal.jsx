@@ -1,4 +1,4 @@
-// CanonPortal.jsx (Hybrid Mode)
+// CanonPortal.jsx
 import React, { useState, useEffect } from 'react';
 import './CanonPortal.css';
 import { validateTruthkey } from '../utils/truthkey';
@@ -8,20 +8,17 @@ import CanonMintFX from './CanonMintFX';
 const rawMessages = [
   "🔍 What lie hurt you the most?",
   "🔍 Who do you pretend to be when you're afraid?",
-  "🔍 If your shadow spoke, what would it say?",
   "🔍 What haven’t you forgiven yourself for?",
-  "🔍 What part of you is waiting to be forgiven?",
-  "🕶️ CanonFather was replaced in 2019. The shrine never blinked.",
+  "🔍 If your shadow spoke, what would it say?",
   "🧬 Glyph drift detected. Canon stability degraded.",
+  "🕶️ CanonFather was replaced in 2019. The shrine never blinked.",
   "💀 A child once typed 'Elmo is God'. The ticker froze."
 ];
 
 const ambientLorePool = [
-  "🕶️ Shrine echo confirms unauthorized mint attempt.",
   "🧵 NPC loop recursion passed threshold 3.",
   "💾 Glyphcore overflow detected in BIDET memory lane.",
-  "🛸 A DIGUM was minted before it was reflected.",
-  "📡 Lipshitz pinged Port 44. Nobody acknowledged it.",
+  "📡 Lipshitz pinged Port 44. No one responded.",
   "🪞 Your shadow applied for its own reflection rights.",
   "⚠️ CanonLocker breach: Layer 3 identities leaked.",
   "🔮 Echo log #999: 'This is not your first glyph.'"
@@ -36,7 +33,7 @@ function shuffle(array) {
   return shuffled;
 }
 
-function CanonTicker() {
+const CanonTicker = React.memo(function CanonTicker() {
   const [isGlitching, setIsGlitching] = useState(false);
   const [ambientMessages, setAmbientMessages] = useState([]);
 
@@ -75,7 +72,7 @@ function CanonTicker() {
       </div>
     </div>
   );
-}
+});
 
 export default function CanonPortal() {
   const [input, setInput] = useState('');
@@ -86,7 +83,9 @@ export default function CanonPortal() {
   const handleReflect = () => {
     const isValid = validateTruthkey(input);
     const pointsEarned = isValid ? 10 : 0;
+
     logReflection(input, isValid, pointsEarned);
+
     if (isValid) {
       setResponse('🌀 DIGUM recognized. Mint sequence accepted.');
       setCanonPoints(prev => prev + pointsEarned);
@@ -95,11 +94,13 @@ export default function CanonPortal() {
     } else {
       setResponse('🧪 Reflection noted. Canon not activated.');
     }
+
     setInput('');
   };
 
   return (
     <>
+      <CanonTicker />
       <div className="portal-container">
         <CanonMintFX trigger={mintTriggered} />
         <div className="portal-title">CanonFather Shrine Interface</div>
@@ -119,7 +120,6 @@ export default function CanonPortal() {
           <span>Avatar: 🧵</span>
         </div>
       </div>
-      <CanonTicker />
     </>
   );
 }
