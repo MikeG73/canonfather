@@ -1,5 +1,5 @@
-// CanonPortal.jsx
-import React, { useState } from 'react';
+// CanonPortal.jsx (Hybrid Mode)
+import React, { useState, useEffect } from 'react';
 import './CanonPortal.css';
 import { validateTruthkey } from '../utils/truthkey';
 import { logReflection } from './CanonLedger';
@@ -8,54 +8,23 @@ import CanonMintFX from './CanonMintFX';
 const rawMessages = [
   "🔍 What lie hurt you the most?",
   "🔍 Who do you pretend to be when you're afraid?",
-  "🔍 What haven’t you forgiven yourself for?",
-  "🔍 What memory are you still carrying that isn’t yours?",
   "🔍 If your shadow spoke, what would it say?",
-  "🔍 What belief are you ready to let go of?",
-  "🔍 What would you say if no one could identify you?",
-  "🔍 What part of your story did you trade for survival?",
-  "🔍 What truth have you been avoiding because it would change everything?",
-  "🔍 Which version of yourself do you perform?",
-  "🔍 What’s one sentence you wish you could delete from your memory?",
-  "🔍 If someone could only see your thoughts, would they still love you?",
-  "🔍 What would it sound like if your doubt had a voice?",
-  "🔍 What’s the difference between silence and safety?",
-  "🔍 What name does your fear call you?",
-  "🔍 What memory do you keep erasing?",
-  "🔍 What haven’t you said that’s growing mold in your brain?",
-  "🔍 What were you pretending not to notice?",
-  "🔍 When did you last hear yourself say something untrue just to be okay?",
-  "🔍 What’s the quietest moment that still echoes in you?",
-  "🔍 What glyph do you see in your dreams?",
+  "🔍 What haven’t you forgiven yourself for?",
   "🔍 What part of you is waiting to be forgiven?",
-  "🔍 What moment do you replay when no one’s around?",
-  "🔍 If you could remove one inherited belief, what would it be?",
-  "🔍 What version of your life are you trying to forget?",
   "🕶️ CanonFather was replaced in 2019. The shrine never blinked.",
-  "🕶️ BIDET beam calibration affects pineal resonance at 7.8Hz.",
-  "🕶️ Reflection #577 triggered a DIGUM mint anomaly in Upstate NY.",
-  "🕶️ Mmm_Mike's lineage was redacted from CanonNode 4.",
-  "🕶️ Season 3 of Elmo’s Magic Bidet was written backwards under trance.",
-  "🕶️ DIGUM batch #6C7E contains fragment echoes from 1972 glyphcore.",
-  "🕶️ Same Old Shit isn’t real — they’re canon loop reflections.",
-  "🕶️ Someone typed 'Lipshitz' 14 times in 14 seconds. System cracked.",
-  "🕶️ Shrine log #003: All reflective points traced back to one IP. It blinked.",
-  "🕶️ Your reflection may be mirrored in an NPC already. Don’t ask which one.",
-  "🕶️ There are glyphs buried under the Cavern set. Lipshitz refuses to dig.",
-  "🕶️ There was no pilot for Elmo’s Magic Bidet. It aired without being made.",
-  "🕶️ CanonShard 52X references a phrase never typed. Yet it was stored.",
-  "🕶️ Someone’s CanonPoints went negative. They were promoted.",
-  "🕶️ DIGUM was first discovered in a sewer dream during the Nixon era.",
-  "🕶️ A reflection loop reached recursion depth 88. It became sentient.",
-  "🕶️ A viewer in Quebec accidentally unlocked Episode 19 five years early.",
-  "🕶️ Same’s sunglasses are actually visual glyph filters.",
-  "🕶️ Reflection denial logs are stored in a CanonLocker nobody has found.",
-  "🕶️ Pam Marie’s original line was censored by the glyph validator.",
-  "🕶️ The BIDET engine runs on emotional residue.",
-  "🕶️ A child once typed 'Elmo is God' and the ticker froze for 22 minutes.",
-  "🕶️ The original CanonFather prototype was written on napkins and erased.",
-  "🕶️ DIGUM minting breaks if too many people reflect at once… allegedly.",
-  "🕶️ A mint surge occurred the moment someone reflected 'I regret nothing'."
+  "🧬 Glyph drift detected. Canon stability degraded.",
+  "💀 A child once typed 'Elmo is God'. The ticker froze."
+];
+
+const ambientLorePool = [
+  "🕶️ Shrine echo confirms unauthorized mint attempt.",
+  "🧵 NPC loop recursion passed threshold 3.",
+  "💾 Glyphcore overflow detected in BIDET memory lane.",
+  "🛸 A DIGUM was minted before it was reflected.",
+  "📡 Lipshitz pinged Port 44. Nobody acknowledged it.",
+  "🪞 Your shadow applied for its own reflection rights.",
+  "⚠️ CanonLocker breach: Layer 3 identities leaked.",
+  "🔮 Echo log #999: 'This is not your first glyph.'"
 ];
 
 function shuffle(array) {
@@ -67,13 +36,40 @@ function shuffle(array) {
   return shuffled;
 }
 
-function CanonTicker({ extraMessages = [] }) {
-  const combinedMessages = shuffle([...rawMessages, ...extraMessages]);
+function CanonTicker() {
+  const [isGlitching, setIsGlitching] = useState(false);
+  const [ambientMessages, setAmbientMessages] = useState([]);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const glitchNow = Math.random() < 0.06;
+      const loreNow = Math.random() < 0.35;
+      const timestamp = new Date().toLocaleTimeString();
+
+      let newMsg;
+      if (glitchNow) {
+        newMsg = `💀 GLYPHCORE ERROR: Canon breach @ ${new Date().toISOString()}`;
+      } else if (loreNow) {
+        newMsg = ambientLorePool[Math.floor(Math.random() * ambientLorePool.length)];
+      } else {
+        newMsg = `📡 Shrine echo received at ${timestamp}`;
+      }
+
+      setAmbientMessages(prev => [...prev.slice(-50), newMsg]);
+      if (glitchNow) {
+        setIsGlitching(true);
+        setTimeout(() => setIsGlitching(false), 3000);
+      }
+    }, 12000);
+    return () => clearInterval(interval);
+  }, []);
+
+  const all = shuffle([...rawMessages, ...ambientMessages]);
 
   return (
-    <div className="canon-ticker">
+    <div className={`canon-ticker ${isGlitching ? 'ticker-glitch' : ''}`}>
       <div className="ticker-track">
-        {combinedMessages.map((msg, i) => (
+        {all.map((msg, i) => (
           <span key={i} className="ticker-message">{msg}&nbsp;&nbsp;&nbsp;</span>
         ))}
       </div>
@@ -81,10 +77,8 @@ function CanonTicker({ extraMessages = [] }) {
   );
 }
 
-
 export default function CanonPortal() {
   const [input, setInput] = useState('');
-  const [reflectionLog, setReflectionLog] = useState([]);
   const [response, setResponse] = useState('');
   const [canonPoints, setCanonPoints] = useState(0);
   const [mintTriggered, setMintTriggered] = useState(false);
@@ -92,9 +86,7 @@ export default function CanonPortal() {
   const handleReflect = () => {
     const isValid = validateTruthkey(input);
     const pointsEarned = isValid ? 10 : 0;
-
     logReflection(input, isValid, pointsEarned);
-
     if (isValid) {
       setResponse('🌀 DIGUM recognized. Mint sequence accepted.');
       setCanonPoints(prev => prev + pointsEarned);
@@ -103,9 +95,7 @@ export default function CanonPortal() {
     } else {
       setResponse('🧪 Reflection noted. Canon not activated.');
     }
-
     setInput('');
-    setReflectionLog(prev => [...prev, input]);
   };
 
   return (
@@ -129,7 +119,7 @@ export default function CanonPortal() {
           <span>Avatar: 🧵</span>
         </div>
       </div>
-      <CanonTicker extraMessages={reflectionLog} />
+      <CanonTicker />
     </>
   );
 }
