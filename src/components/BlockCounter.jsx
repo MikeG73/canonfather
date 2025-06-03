@@ -1,3 +1,4 @@
+// BlockCounter.jsx — Canon Engine Core Reactor (SAME RULES)
 import React, { useEffect, useState } from 'react';
 import './BlockCounter.css';
 
@@ -11,10 +12,10 @@ export default function BlockCounter() {
     const interval = setInterval(() => {
       setBlock(prev => {
         const next = prev + 1;
-        localStorage.setItem('canon_block_number', next);
+        localStorage.setItem('canon_block_number', next.toString());
         return next;
       });
-    }, 45000); // every 45 seconds
+    }, 45000);
 
     return () => clearInterval(interval);
   }, []);
