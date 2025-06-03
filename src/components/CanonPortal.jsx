@@ -1,4 +1,4 @@
-// CanonPortal.jsx
+// CanonPortal.jsx (with Audio Integration)
 import React, { useState, useEffect } from 'react';
 import './CanonPortal.css';
 import { validateTruthkey } from '../utils/truthkey';
@@ -80,7 +80,17 @@ export default function CanonPortal() {
   const [canonPoints, setCanonPoints] = useState(0);
   const [mintTriggered, setMintTriggered] = useState(false);
 
+  useEffect(() => {
+    const ambient = new Audio('/canonAmbient.mp3');
+    ambient.volume = 0.8;
+    ambient.play().catch((err) => console.warn("Ambient audio play blocked:", err));
+  }, []);
+
   const handleReflect = () => {
+    const pulse = new Audio('/canonPulse.mp3');
+    pulse.volume = 1.0;
+    pulse.play().catch((err) => console.warn("Pulse audio play blocked:", err));
+
     const isValid = validateTruthkey(input);
     const pointsEarned = isValid ? 10 : 0;
 
