@@ -1,4 +1,4 @@
-// CanonPortal.jsx — Final with CanonTicker restored
+// CanonPortal.jsx — CanonNode 5 Overload Mode + 3-Phase Shrine Logic
 import React, { useState, useEffect } from 'react';
 import './CanonPortal.css';
 import { validateTruthkey } from '../utils/truthkey';
@@ -10,19 +10,27 @@ const rawMessages = [
   "🔍 What haven’t you forgiven yourself for?",
   "🕶️ CanonFather was replaced in 2019.",
   "📡 Shrine echo received.",
-  "💀 Canon breach acknowledged.",
+  "💀 Canon breach acknowledged."
 ];
 
 const ambientLorePool = [
-  "🪞 Your shadow was archived.",
-  "⚠️ Reflection overload reached glyph limit.",
-  "🔮 CanonNode 4 bled echoes.",
-  "📜 Elmo’s glyph reappeared in transcript #5C7E.",
+  "🧬 CanonNode 5 initiated glyph sequence 9Z-88.",
+  "🚨 Glyph integrity breach: echo loop overflowed.",
+  "🕸️ Reflection density fractured on Node 5B.",
+  "🔁 Shrine memory replayed a past unspoken phrase.",
+  "🕶️ Same & Old Shit observed glitch #0037 near node shelf.",
+  "🔦 Fragment 'Elmo_Awakened' decoded from sewer thread.",
+  "📡 BIDET fallback route triggered at CanonNode 5.",
+  "📍 Node 5 glyph pressure exceeded 77 glyphs/sec.",
+  "⛏️ DigumMine overflow — reflection dig unsafe.",
+  "🎙️ EchoLog #5-NOVA: 'This place remembers you.'",
+  "💽 CanonFather's eye twitched at 03:37am. Logged."
 ];
 
 const CanonTicker = React.memo(function CanonTicker() {
   const [isGlitching, setIsGlitching] = useState(false);
   const [ambientMessages, setAmbientMessages] = useState([]);
+  const [overload, setOverload] = useState(false);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -30,11 +38,16 @@ const CanonTicker = React.memo(function CanonTicker() {
       const loreNow = Math.random() < 0.4;
       const timestamp = new Date().toLocaleTimeString();
 
-      let newMsg;
+      let newMsg = '';
       if (glitchNow) {
         newMsg = `💀 GLYPHCORE ERROR: Canon breach @ ${new Date().toISOString()}`;
       } else if (loreNow) {
-        newMsg = ambientLorePool[Math.floor(Math.random() * ambientLorePool.length)];
+        const lore = ambientLorePool[Math.floor(Math.random() * ambientLorePool.length)];
+        newMsg = lore;
+        if (lore.includes("CanonNode 5")) {
+          setOverload(true);
+          setTimeout(() => setOverload(false), 8000);
+        }
       } else {
         newMsg = `📡 Shrine echo received at ${timestamp}`;
       }
@@ -51,7 +64,7 @@ const CanonTicker = React.memo(function CanonTicker() {
   const all = [...rawMessages, ...ambientMessages].sort(() => Math.random() - 0.5);
 
   return (
-    <div className={`canon-ticker ${isGlitching ? 'ticker-glitch' : ''}`}>
+    <div className={`canon-ticker ${isGlitching ? 'ticker-glitch' : ''} ${overload ? 'ticker-overload' : ''}`}>
       <div className="ticker-track">
         {all.map((msg, i) => (
           <span key={i} className="ticker-message">{msg}&nbsp;&nbsp;&nbsp;</span>
@@ -68,7 +81,7 @@ function validateReflectionMeaning(text) {
   return cleaned.length > 10 && wordCount >= 3 && !nonsensePattern.test(cleaned);
 }
 
-export default function CanonPortal() {
+function CanonPortal() {
   const [input, setInput] = useState('');
   const [response, setResponse] = useState('');
   const [canonPoints, setCanonPoints] = useState(0);
@@ -107,14 +120,7 @@ export default function CanonPortal() {
     if (buttonPhase === 1) return;
 
     if (buttonPhase === 2) {
-      const buzzer = new Audio('/buzzer.mp3');
-      buzzer.volume = 0.8;
-      buzzer.play().catch(err => console.warn("Buzzer blocked:", err));
-
-      const busted = new Audio('/busted.mp3');
-      busted.volume = 1.0;
-      busted.play().catch(err => console.warn("Busted.mp3 blocked:", err));
-
+      new Audio('/buzzer.mp3').play();
       setResponse('💢⛓️ BUSTED_LOGIC ⛓️💢\n🧠 B.I.D.E.T. CanonEngine[Y3K] 🔒🪠');
       setButtonShake(true);
       setTimeout(() => setButtonShake(false), 500);
@@ -122,14 +128,11 @@ export default function CanonPortal() {
     }
 
     if (buttonPhase === 3) {
-      const pulse = new Audio('/canonPulse.mp3');
-      pulse.volume = 1.0;
-      pulse.play().catch(err => console.warn("Pulse blocked:", err));
+      new Audio('/canonPulse.mp3').play();
     }
 
     const isValid = validateTruthkey(input);
     const pointsEarned = isValid ? 10 : 0;
-
     logReflection(input, isValid, pointsEarned);
 
     if (isValid) {
@@ -155,7 +158,7 @@ export default function CanonPortal() {
           className="portal-input"
           type="text"
           value={input}
-          placeholder="🫣😭🤬🥹🤪😨🥳🤥leave it all behind..."
+          placeholder="🫣😭🤬🥹🤪😨🥳🤥    ...leave it all behind...         "
           onChange={(e) => setInput(e.target.value)}
         />
         <button
@@ -177,3 +180,5 @@ export default function CanonPortal() {
     </>
   );
 }
+
+export default CanonPortal;
