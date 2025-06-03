@@ -77,8 +77,14 @@ const CanonTicker = React.memo(function CanonTicker() {
 function validateReflectionMeaning(text) {
   const cleaned = text.trim();
   const wordCount = cleaned.split(/\s+/).length;
+  const sadWords = [
+    'sorry', 'forgive', 'alone', 'afraid', 'left', 'wrong', 'shame', 'cry',
+    'broken', 'regret', 'guilt', 'lost', 'worthless', 'angry', 'hurt', 'sad'
+  ];
+  const hasEmotion = sadWords.some(word => cleaned.toLowerCase().includes(word));
   const nonsensePattern = /^(?:[asdfjkl;]+|[a-z]{1,2}\d{3,}|[!@#$%^&*()_+\-=\\[\]{};':"|,.<>/?]{5,})$/i;
-  return cleaned.length > 10 && wordCount >= 3 && !nonsensePattern.test(cleaned);
+
+  return cleaned.length >= 25 && wordCount >= 3 && hasEmotion && !nonsensePattern.test(cleaned);
 }
 
 function CanonPortal() {
@@ -109,7 +115,9 @@ function CanonPortal() {
     if (input.length > 0 && buttonPhase === 1) {
       setButtonPhase(2);
     }
-    if (validateReflectionMeaning(input)) {
+
+    const isTrulyUnlocked = input.trim().length >= 25 && validateReflectionMeaning(input);
+    if (isTrulyUnlocked) {
       setButtonPhase(3);
     } else if (buttonPhase !== 1) {
       setButtonPhase(2);
@@ -161,6 +169,11 @@ function CanonPortal() {
           placeholder="🫣😭🤬🥹🤪😨🥳🤥    ...leave it all behind...         "
           onChange={(e) => setInput(e.target.value)}
         />
+        {input && (
+          <p style={{ fontSize: '0.75rem', color: '#999', marginTop: '4px' }}>
+            Characters: {input.length} | Trimmed: {input.trim().length}
+          </p>
+        )}
         <button
           className={`portal-button phase-${buttonPhase} ${buttonShake ? 'shake' : ''}`}
           onClick={handleReflect}

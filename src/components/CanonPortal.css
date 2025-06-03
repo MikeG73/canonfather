@@ -1,81 +1,74 @@
-/* CanonPortal.css — Full Shrine Visual System with Overload, Glitch, and Scroll */
+/* CanonPortal.css — Shrine Logic Skin */
 
 .portal-container {
-  padding: 2rem;
+  max-width: 600px;
+  margin: 60px auto 0;
+  padding: 24px;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 16px;
+  border: 2px solid #0ff5;
+  box-shadow: 0 0 20px rgba(0,255,255,0.1), 0 0 80px rgba(255,0,255,0.05);
   text-align: center;
-  color: #ddd;
+  position: relative;
 }
 
 .portal-title {
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
-  color: #ffd700;
-  text-shadow: 0 0 4px #222;
+  font-size: 1.25rem;
+  color: #aff;
+  margin-bottom: 16px;
+  text-shadow: 0 0 6px #0ff;
 }
 
 .portal-input {
-  padding: 0.5rem;
-  width: 80%;
-  max-width: 600px;
-  margin-bottom: 1rem;
-  font-size: 1.1rem;
-  background: #111;
-  border: 1px solid #444;
-  color: #eee;
+  width: 100%;
+  font-family: 'Courier New', monospace;
+  font-size: 1rem;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #0ff3;
+  background: rgba(10,10,15,0.8);
+  color: #aff;
+  outline: none;
+  box-shadow: inset 0 0 6px #0ff3;
+  transition: box-shadow 0.3s ease;
+}
+
+.portal-input:focus {
+  box-shadow: 0 0 8px #f0f, 0 0 16px #0ff;
 }
 
 .portal-button {
-  position: relative;
-  padding: 0.6rem 1.2rem;
-  font-size: 1.2rem;
-  border-radius: 6px;
-  background-color: #111;
-  color: #666;
-  border: 1px solid #444;
-  opacity: 0.3;
-  pointer-events: none;
-  transition: all 0.3s ease;
+  margin-top: 16px;
+  padding: 12px 24px;
+  font-family: 'Courier New', monospace;
+  font-size: 1rem;
+  border-radius: 10px;
+  background: #111;
+  color: #777;
+  border: 2px solid #444;
   cursor: not-allowed;
-}
-
-.portal-button.phase-2 {
-  pointer-events: auto;
-  opacity: 0.5; /* 50% Luminosity */
-  color: #ffaa00;
-  border-color: #ffaa00;
-  cursor: pointer;
-  box-shadow: 0 0 6px #ffaa0044;
+  opacity: 0.5;
+  transition: all 0.4s ease;
 }
 
 .portal-button.phase-3 {
-  pointer-events: auto;
-  opacity: 1; /* 100% Luminosity */
-  color: #ffd700;
-  border-color: #ffd700;
-  box-shadow: 0 0 12px #ffd700aa;
+  background: linear-gradient(to right, #0ff, #f0f, #ff0);
+  color: #000;
+  border: 2px solid #fff;
+  box-shadow: 0 0 16px #0ffb, 0 0 24px #f0fb;
   cursor: pointer;
-}
-
-.portal-button.phase-3::after {
-  content: '';
-  position: absolute;
-  top: -8px;
-  left: -8px;
-  right: -8px;
-  bottom: -8px;
-  border-radius: 12px;
-  border: 2px solid #ffd70088;
-  animation: pulse-ring 1.5s ease-out infinite;
-  pointer-events: none;
-}
-
-@keyframes pulse-ring {
-  0% { opacity: 0.8; transform: scale(1); }
-  100% { opacity: 0; transform: scale(1.6); }
+  opacity: 1;
+  animation: pulseUnlock 1.5s infinite ease-in-out;
 }
 
 .portal-button.shake {
-  animation: shake 0.3s;
+  animation: shake 0.3s ease-in-out;
+}
+
+@keyframes pulseUnlock {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.04); }
+  100% { transform: scale(1); }
 }
 
 @keyframes shake {
@@ -87,83 +80,25 @@
 }
 
 .portal-response {
-  margin-top: 1rem;
-  color: #ffd700;
-  font-style: italic;
+  margin-top: 20px;
+  font-size: 0.95rem;
+  color: #0ff;
+  white-space: pre-wrap;
+  text-shadow: 0 0 5px #0ff, 0 0 2px #f0f;
 }
 
 .portal-response.busted {
-  color: #ff4444;
-  font-weight: bold;
-  animation: flicker 0.3s steps(2, start) infinite;
-  text-shadow: 0 0 4px red, 0 0 8px crimson;
-  white-space: pre-line;
-}
-
-@keyframes flicker {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.4; }
+  color: #f55;
+  text-shadow: 0 0 8px #f00, 0 0 2px #f55;
 }
 
 .canon-footer {
-  margin-top: 1rem;
-  font-size: 0.9rem;
-  color: #888;
-}
-
-/* Ticker Base */
-.canon-ticker {
-  width: 100%;
-  position: fixed;
-  bottom: 0;
-  background: #000;
-  font-family: 'Courier New', Courier, monospace;
-  font-size: 0.9rem;
-  padding: 0.4rem 0;
-  color: #ffd700;
-  z-index: 9999;
-  overflow: hidden;
-  border-top: 1px solid #333;
-}
-
-.ticker-track {
-  display: inline-block;
-  white-space: nowrap;
-  padding-left: 100%;
-  animation: ticker-scroll 180s linear infinite;
-}
-
-.ticker-message {
-  display: inline-block;
-  padding-right: 3rem;
-}
-
-@keyframes ticker-scroll {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-100%); }
-}
-
-/* Glitch state */
-.ticker-glitch {
-  background-color: #000;
-  color: #00ff00;
-  text-shadow: 0 0 6px #00ff00, 0 0 10px #00ff00;
-  animation: glitch-flicker 0.2s steps(2, jump-none) infinite alternate;
-}
-
-@keyframes glitch-flicker {
-  0%   { opacity: 1; transform: translateX(0); }
-  100% { opacity: 0.5; transform: translateX(-1px); }
-}
-
-/* CanonNode 5 Overload */
-.ticker-overload {
-  background-color: #111;
-  color: #ff5;
-  animation: overload-pulse 0.4s steps(2) infinite alternate;
-}
-
-@keyframes overload-pulse {
-  0% { text-shadow: 0 0 4px #ff5, 0 0 8px #ff0; }
-  100% { text-shadow: 0 0 10px #ff0, 0 0 14px #f80; }
+  margin-top: 28px;
+  font-size: 0.85rem;
+  color: #999;
+  display: flex;
+  justify-content: space-between;
+  opacity: 0.8;
+  padding: 0 8px;
+  font-family: 'Courier New', monospace;
 }
