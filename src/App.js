@@ -1,4 +1,5 @@
 import React from 'react';
+<<<<<<< HEAD
 
 // Canon Engine Modules
 import CanonPortalPremierDemo from './components/CanonPortal_PremierDemo';
@@ -26,6 +27,16 @@ import './components/BlockCounter.css';
 import './components/DigumHUD.css';
 import './components/GlyphUnderstream.css';
 import './components/shrineMotion.css';
+=======
+import CanonPortalPremierDemo from './components/CanonPortalPremierDemo';
+import GenesisBlock from './components/GenesisBlock';
+import BlockCounter from './components/BlockCounter';
+
+import './App.css';
+import './components/CanonPortal.css';
+import './components/GenesisBlock.css';
+import './components/BlockCounter.css';
+>>>>>>> 935b85d (Final cleanup of App.js — Canon-aligned structure)
 
 function App() {
   return (
@@ -38,6 +49,7 @@ function App() {
         <p className="canon-stamp">🔮 B.I.D.E.T. Canon Engine</p>
       </div>
 
+<<<<<<< HEAD
       {/* Canon Infrastructure */}
       <GenesisBlock />
       <BlockCounter />
@@ -53,6 +65,12 @@ function App() {
       <MirrorGatewayAlpha />
       <KioskBackground />
       <Reflector />
+=======
+      {/* Shrine Infrastructure */}
+      <GenesisBlock />
+      <BlockCounter />
+      <CanonPortalPremierDemo />
+>>>>>>> 935b85d (Final cleanup of App.js — Canon-aligned structure)
     </div>
   );
 }
