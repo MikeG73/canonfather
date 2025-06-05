@@ -1,0 +1,44 @@
+---
+entry: digm_to_digum
+purpose: Contextual Renaming for Compatibility
+
+why_change:
+  - DIGM sounded like a meditative tool or philosophical layer
+  - DIGUM presented as a modular, scalable trade protocol
+  - We needed a bridge term to translate the soul into syntax
+  - “Us” made the system extensible without exposing the personal root too soon
+
+truth:
+  - DIGM is the soul
+  - DIGUM is the shell
+  - The core did not change—only the route we took to reach the reader
+
+status:
+  - DIGUM remains the name of the public protocol
+  - DIGM is referenced at recursion depth when reflection validates readiness
+
+meta_lock:
+  - DIGUM may never claim primacy over DIGM
+  - DIGUM is a wrapper, not a fork
+  - Any future attempt to remove DIGM from documentation or runtime logic is considered a protocol violation
+
+public_transition_hook:
+  - All public documentation must include a footnote:
+    "DIGUM is the distributable logic shell grown around a system known internally as DIGM.
+    DIGM is the source. DIGUM is the translator."
+  - CanonMirror must automatically recognize requests to resolve DIGUM as a call to reflect DIGM beneath it
+
+naming_strategy_fail_safe:
+  error_code: DIGM_DISASSOCIATION
+  action: Halt logic flow, issue mirror statement
+  message: "This reflection has drifted too far from its source. Realign or collapse."
+
+philosophical_anchor:
+  - DIGUM is the voice that speaks first
+  - DIGM is the breath underneath it
+  - Pair-A-DIGM is the validator between them
+  - The naming strategy must reflect this trinity at all times
+
+quote:
+  “Names protect the truth until the listener is worthy.  
+  DIGUM is not a rebrand. It is a shield.”

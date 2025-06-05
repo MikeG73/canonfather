@@ -1,4 +1,21 @@
+<<<<<<< HEAD
 /* CanonPortal.css — Shrine Logic, Button, Input */
+=======
+body.stage1 {
+  background-color: #000000;
+  transition: background 0.5s ease-in-out;
+}
+
+body.stage2 {
+  background-color: rgba(255, 255, 255, 0.5);
+  transition: background 0.5s ease-in-out;
+}
+
+body.stage3 {
+  background-color: rgba(255, 255, 255, 1);
+  transition: background 0.5s ease-in-out;
+}
+>>>>>>> 0787675 (Re-added canon-mirror as flat directory (essential CanonModule))
 
 .canon-portal-container {
   background: radial-gradient(circle at center, #0b0c10, #1f2833);

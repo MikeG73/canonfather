@@ -51,6 +51,7 @@ export default function CanonPortalPremierDemo() {
     const isValid = validateTruthkey(truthkey);
     if (isValid) {
       logReflection(`✅ TruthKey accepted: ${truthkey}`);
+<<<<<<< HEAD
       playAudio('canonPulse.mp3');
       setStage('stage3');
       alert('✅ Access Granted: Shrine logic recognized.');
@@ -58,6 +59,15 @@ export default function CanonPortalPremierDemo() {
       logReflection(`❌ TruthKey rejected: ${truthkey}`);
       playAudio('buzzer.mp3');
       setStage('stage1');
+=======
+      setStage('stage3'); // full illumination
+      playAudio('canonPulse.mp3');
+      alert('✅ Access Granted: Shrine logic recognized.');
+    } else {
+      logReflection(`❌ TruthKey rejected: ${truthkey}`);
+      setStage('stage1'); // no light
+      playAudio('buzzer.mp3');
+>>>>>>> 0787675 (Re-added canon-mirror as flat directory (essential CanonModule))
       alert('❌ Invalid TruthKey. Try again.');
     }
   };
@@ -68,6 +78,7 @@ export default function CanonPortalPremierDemo() {
       <CanonTickerOOA message={glyphMessage} />
       <CanonMintFX mode="reflectionPulse" />
 
+<<<<<<< HEAD
       {/* 🔗 Whitebook Button — always visible for now */}
       <a
         href="https://github.com/MikeG73/MikeG73/canonfather"
@@ -77,6 +88,18 @@ export default function CanonPortalPremierDemo() {
       >
         📄 View the DIGUM Whitebook PDF
       </a>
+=======
+      {stage !== 'stage1' && (
+        <a
+          href="https://github.com/MikeG73/MikeG73/canonfather"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="whitebook-link-button"
+        >
+          📄 View the DIGUM Whitebook PDF
+        </a>
+      )}
+>>>>>>> 0787675 (Re-added canon-mirror as flat directory (essential CanonModule))
 
       <div className="truthkey-validation">
         <p>🔐 Enter your TruthKey to proceed:</p>
