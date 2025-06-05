@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react';
+import './shrineMotion.css'; // Adjust path if needed
 
 export default function MirrorGatewayAlpha() {
   const backgroundRef = useRef(null);
