@@ -69,16 +69,4 @@
   font-weight: bold;
   border: none;
   border-radius: 6px;
-  cursor: pointer;
-  box-shadow: 0 0 12px #1affbc;
-  text-decoration: none;
-  transition: all 0.2s ease-in-out;
-  display: inline-block;
-  max-width: fit-content;
-}
-
-.whitebook-link-button:hover {
-  background-color: #0cfcc2;
-  box-shadow: 0 0 20px #0cfcc2;
-  transform: scale(1.04);
-}
+  cursor: p
