@@ -1,0 +1,35 @@
+.vault-viewer {
+  max-width: 720px;
+  margin: 40px auto;
+  padding: 20px;
+  border: 2px solid #0ff4;
+  background: rgba(0,0,0,0.7);
+  color: #aff;
+  font-family: 'Courier New', monospace;
+  border-radius: 12px;
+  box-shadow: 0 0 20px #0ff4, 0 0 60px rgba(255, 0, 255, 0.05);
+}
+
+.vault-title {
+  font-size: 1.2rem;
+  color: #f0f;
+  margin-bottom: 12px;
+  text-shadow: 0 0 6px #0ff;
+  text-align: center;
+}
+
+.vault-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.vault-entry {
+  padding: 8px 0;
+  border-bottom: 1px solid #0ff2;
+  display: grid;
+  grid-template-columns: 100px 40px 180px 160px 1fr;
+  gap: 12px;
+  align-items: center;
+  font-size: 0.85rem;
+}
