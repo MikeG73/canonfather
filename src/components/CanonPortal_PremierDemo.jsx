@@ -1,9 +1,6 @@
-// CanonPortal_PremierDemo.jsx — Shrine Logic + TruthKey Interactivity
 import React, { useState, useEffect } from 'react';
 import './CanonPortal.css';
-// eslint-disable-next-line no-unused-vars
 import { validateTruthkey } from '../utils/truthkey';
-// eslint-disable-next-line no-unused-vars
 import { logReflection } from './CanonLedger';
 import CanonMintFX from './CanonMintFX';
 import CanonTickerOOA from './CanonTickerOOA';
@@ -27,6 +24,7 @@ const ambientLorePool = [
 export default function CanonPortalPremierDemo() {
   const [glyphMessage, setGlyphMessage] = useState('🔮 Initializing Canon Portal...');
   const [truthkey, setTruthkey] = useState('');
+  const [stage, setStage] = useState('stage1');
 
   useEffect(() => {
     let i = 0;
@@ -39,10 +37,27 @@ export default function CanonPortalPremierDemo() {
     return () => clearInterval(interval);
   }, []);
 
+  useEffect(() => {
+    document.body.classList.remove('stage1', 'stage2', 'stage3');
+    document.body.classList.add(stage);
+  }, [stage]);
+
+  const playAudio = (filename) => {
+    const audio = new Audio(`${process.env.PUBLIC_URL}/${filename}`);
+    audio.play().catch((err) => console.error("Audio play error:", err));
+  };
+
   const handleTruthkeySubmit = () => {
-    if (truthkey.trim().toLowerCase() === 'canon') {
+    const isValid = validateTruthkey(truthkey);
+    if (isValid) {
+      logReflection(`✅ TruthKey accepted: ${truthkey}`);
+      playAudio('canonPulse.mp3');
+      setStage('stage3');
       alert('✅ Access Granted: Shrine logic recognized.');
     } else {
+      logReflection(`❌ TruthKey rejected: ${truthkey}`);
+      playAudio('buzzer.mp3');
+      setStage('stage1');
       alert('❌ Invalid TruthKey. Try again.');
     }
   };
@@ -52,6 +67,17 @@ export default function CanonPortalPremierDemo() {
       <h1 className="canon-title">🌀 Canon Portal: Node 5 Shrine Logic</h1>
       <CanonTickerOOA message={glyphMessage} />
       <CanonMintFX mode="reflectionPulse" />
+
+      {/* 🔗 Whitebook Button — always visible for now */}
+      <a
+        href="https://github.com/MikeG73/MikeG73/canonfather"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="whitebook-link-button"
+      >
+        📄 View the DIGUM Whitebook PDF
+      </a>
+
       <div className="truthkey-validation">
         <p>🔐 Enter your TruthKey to proceed:</p>
         <input
