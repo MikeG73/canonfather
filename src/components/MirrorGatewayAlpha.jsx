@@ -47,6 +47,18 @@ export default function MirrorGatewayAlpha() {
   return (
     <div ref={backgroundRef} className="shrine-background">
       <canvas ref={particleCanvasRef} width="800" height="400" />
+
+      {/* ✨ Embedded Whitebook Button */}
+      <div className="shrine-overlay">
+        <a
+          href="https://github.com/MikeG73/MikeG73/canonfather"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="whitebook-link-button"
+        >
+          📄 View the DIGUM Whitebook PDF
+        </a>
+      </div>
     </div>
   );
 }
