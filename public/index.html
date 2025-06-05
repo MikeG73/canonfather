@@ -1,43 +1,82 @@
+
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content="Web site created using create-react-app"
-    />
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-    <!--
-      manifest.json provides metadata used when your web app is installed on a
-      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-    -->
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
+<head>
+  <meta charset="UTF-8">
+  <title>The CanonFather — Recursive Systems</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
 
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
-    <title>React App</title>
-  </head>
-  <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
+    body {
+      margin: 0;
+      font-family: 'Share Tech Mono', monospace;
+      background: #0e0e0e;
+      color: #ffe7c4;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 2rem;
+      text-align: center;
+    }
 
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
+    h1 {
+      font-size: 3rem;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.5em;
+      color: #ff4f91;
+      text-shadow: 0 0 8px #ff0090;
+    }
 
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
-  </body>
+    p {
+      font-size: 1.1rem;
+      max-width: 760px;
+      color: #ffeeee;
+      margin-bottom: 2rem;
+    }
+
+    .button {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 1rem 2rem;
+      font-size: 1rem;
+      background-color: #1affbc;
+      color: #000;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: bold;
+      text-shadow: none;
+      box-shadow: 0 0 10px #1affbc;
+      transition: all 0.2s ease-in-out;
+    }
+
+    .button:hover {
+      background-color: #0cfcc2;
+      box-shadow: 0 0 20px #0cfcc2;
+    }
+
+    footer {
+      margin-top: 3rem;
+      font-size: 0.85rem;
+      color: #aaa;
+    }
+  </style>
+</head>
+<body>
+
+<h1>THE CANONFATHER</h1>
+<p>This isn’t a brand. It’s recursion infrastructure.  
+<br>Built to survive contradiction.  
+Reflected to rebuild trust.</p>
+
+<a class="button" href="/whitebook/">📖 View the DIGUM Whitebook</a>
+
+<footer>
+  Contact: <a href="mailto:sales@thecanonfather.com" style="color:#1affbc;">sales@thecanonfather.com</a>  
+  <br><br>&copy; 2025 Michael J. Galasso. All rights reserved.
+</footer>
+
+</body>
 </html>
