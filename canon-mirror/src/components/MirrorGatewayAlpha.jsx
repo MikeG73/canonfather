@@ -52,7 +52,8 @@ export default function MirrorGatewayAlpha() {
       {/* ✨ Embedded Whitebook Button */}
       <div className="shrine-overlay">
         <a
-          href="https://github.com/MikeG73/MikeG73/canonfather"
+          href="https://github.com/MikeG73/thecanonfather/tree/main/canon-mirror/canon/whitebook"
+
           target="_blank"
           rel="noopener noreferrer"
           className="whitebook-link-button"
