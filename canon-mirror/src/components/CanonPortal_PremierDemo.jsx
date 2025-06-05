@@ -70,7 +70,7 @@ export default function CanonPortalPremierDemo() {
 
       {/* 🔗 Whitebook Button — always visible for now */}
       <a
-        href="https://github.com/MikeG73/thecanonfather/tree/main/canon-mirror/canon/whitebook"
+      href="https://github.com/MikeG73/thecanonfather/tree/main/canon-mirror/public/whitebook/DIGUM_Whitebook.pdf"
 
         target="_blank"
         rel="noopener noreferrer"
