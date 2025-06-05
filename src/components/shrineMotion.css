@@ -34,11 +34,15 @@
 
 .shrine-overlay {
   position: absolute;
-  top: 0;
-  left: 0;
-  padding: 2rem;
+  bottom: 3rem;
+  left: 50%;
+  transform: translateX(-50%);
   z-index: 20;
+  padding: 0;
+  background: none;
+  text-align: center;
 }
+
 
 .shrine-title {
   font-size: 2rem;
