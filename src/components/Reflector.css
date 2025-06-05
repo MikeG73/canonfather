@@ -5,13 +5,13 @@
   text-align: center;
   margin-top: 40px;
   padding: 20px;
-  background: rgba(0, 0, 0, 0.65);
+  background: rgb(0 0 0 / 65%);
   border: 2px solid #0ff6;
   border-radius: 14px;
   max-width: 540px;
   margin-left: auto;
   margin-right: auto;
-  box-shadow: 0 0 20px rgba(0,255,255,0.1), 0 0 60px rgba(255,0,255,0.06);
+  box-shadow: 0 0 20px rgb(0 255 255 / 10%), 0 0 60px rgb(255 0 255 / 6%);
 }
 
 .reflect-input {
@@ -20,7 +20,7 @@
   padding: 14px;
   font-size: 1rem;
   font-family: 'Courier New', monospace;
-  background: rgba(5, 5, 10, 0.8);
+  background: rgb(5 5 10 / 80%);
   color: #aff;
   border: 1px solid #0ff4;
   border-radius: 10px;
@@ -64,9 +64,10 @@
 .reflect-button.phase-2 {
   border: 2px dashed #f55;
   color: #f99;
-  background-color: rgba(50,0,0,0.3);
+  background-color: rgb(50 0 0 / 30%);
   animation: shake 0.3s ease-in-out;
 }
+
 @keyframes shake {
   0% { transform: translateX(0); }
   25% { transform: translateX(-2px); }
@@ -94,7 +95,7 @@
 
 .reflection-glyph {
   font-size: 4rem;
-  color: rgba(255, 255, 255, 0.04);
+  color: rgb(255 255 255 / 4%);
   position: absolute;
   top: 50%;
   left: 50%;

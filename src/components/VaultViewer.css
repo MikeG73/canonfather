@@ -3,11 +3,11 @@
   margin: 40px auto;
   padding: 20px;
   border: 2px solid #0ff4;
-  background: rgba(0,0,0,0.7);
+  background: rgb(0 0 0 / 70%);
   color: #aff;
   font-family: 'Courier New', monospace;
   border-radius: 12px;
-  box-shadow: 0 0 20px #0ff4, 0 0 60px rgba(255, 0, 255, 0.05);
+  box-shadow: 0 0 20px #0ff4, 0 0 60px rgb(255 0 255 / 5%);
 }
 
 .vault-title {

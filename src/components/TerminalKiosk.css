@@ -2,17 +2,17 @@
 
 .terminal-wrapper {
   background-color: #000;
-  color: #00ff88;
+  color: #0f8;
   font-family: 'Courier New', monospace;
   padding: 1rem;
-  border: 2px solid #00ff88;
+  border: 2px solid #0f8;
   border-radius: 8px;
   max-width: 700px;
   margin: 4vh auto;
   height: 400px;
   display: flex;
   flex-direction: column;
-  box-shadow: 0 0 15px #00ff8844;
+  box-shadow: 0 0 15px #0f84;
   position: relative;
 }
 
@@ -22,14 +22,15 @@
   white-space: pre-wrap;
   padding-right: 1rem;
   scrollbar-width: thin;
-  scrollbar-color: #00ff88 transparent;
+  scrollbar-color: #0f8 transparent;
 }
 
 .terminal-output::-webkit-scrollbar {
   width: 6px;
 }
+
 .terminal-output::-webkit-scrollbar-thumb {
-  background-color: #00ff88;
+  background-color: #0f8;
   border-radius: 4px;
 }
 
@@ -45,17 +46,17 @@
 }
 
 .terminal-prompt {
-  color: #00ff88;
+  color: #0f8;
   margin-right: 0.5rem;
 }
 
 .terminal-input {
   flex: 1;
   background-color: transparent;
-  color: #00ff88;
+  color: #0f8;
   border: none;
   outline: none;
   font-family: 'Courier New', monospace;
   font-size: 1rem;
-  caret-color: #00ff88;
+  caret-color: #0f8;
 }

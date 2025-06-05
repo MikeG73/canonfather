@@ -4,7 +4,7 @@
   position: fixed;
   top: 1rem;
   right: 1rem;
-  background: rgba(0, 0, 0, 0.8);
+  background: rgb(0 0 0 / 80%);
   color: gold;
   border: 2px solid gold;
   border-radius: 8px;
@@ -25,7 +25,7 @@
 
 .hud-block label {
   font-weight: bold;
-  color: #ffcc00;
+  color: #fc0;
 }
 
 .hud-bar {
@@ -38,7 +38,7 @@
 }
 
 .hud-fill {
-  background: linear-gradient(90deg, gold, #ffcc00);
+  background: linear-gradient(90deg, gold, #fc0);
   height: 100%;
   transition: width 0.5s ease-in-out;
 }

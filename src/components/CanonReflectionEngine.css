@@ -8,7 +8,7 @@
   width: 300px;
   height: 300px;
   border-radius: 50%;
-  background: radial-gradient(circle, #ffd70033, #00000000);
+  background: radial-gradient(circle, #ffd70033, #0000);
   z-index: 2;
   pointer-events: none;
   filter: blur(8px);
