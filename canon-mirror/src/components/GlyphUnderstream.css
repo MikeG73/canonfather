@@ -1,0 +1,33 @@
+.glyph-understream {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 32px;
+  font-size: 1.5rem;
+  color: rgba(255, 255, 255, 0.12);
+  white-space: nowrap;
+  overflow: hidden;
+  z-index: 1;
+  pointer-events: none;
+  animation: glyph-stream 10s linear infinite reverse;
+  filter: blur(0.5px);
+  text-shadow: 0 0 4px #0ff8;
+}
+
+.glyph-understream .glyph {
+  display: inline-block;
+  margin: 0 14px;
+  animation: glyph-flicker 2s ease-in-out infinite;
+}
+
+@keyframes glyph-stream {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}
+
+@keyframes glyph-flicker {
+  0%, 100% { opacity: 0.2; }
+  50%      { opacity: 0.6; transform: scale(1.05); }
+}
+``

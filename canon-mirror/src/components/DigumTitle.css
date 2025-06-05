@@ -1,0 +1,39 @@
+.digum-title-wrapper {
+  background-color: black;
+  color: gold;
+  padding: 2rem;
+  text-align: center;
+  font-family: 'Courier New', monospace;
+}
+
+.digum-title {
+  font-size: 1.4rem;
+  line-height: 2rem;
+  text-shadow: 0 0 12px #FFD700;
+}
+
+.highlighted {
+  color: #FF69B4;
+  font-size: 2rem;
+  animation: pulse 2s infinite;
+}
+
+.subtext {
+  color: cyan;
+  font-size: 1rem;
+  margin-top: 0.5rem;
+  display: block;
+}
+
+.stamp {
+  margin-top: 1rem;
+  color: #777;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+}
+
+@keyframes pulse {
+  0% { opacity: 0.5; }
+  50% { opacity: 1; }
+  100% { opacity: 0.5; }
+}
