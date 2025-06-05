@@ -52,7 +52,7 @@ export default function MirrorGatewayAlpha() {
       {/* ✨ Embedded Whitebook Button */}
       <div className="shrine-overlay">
         <a
-        href="https://github.com/MikeG73/thecanonfather/tree/main/canon-mirror/public/whitebook/DIGUM_Whitebook.pdf"=
+        href="https://github.com/MikeG73/thecanonfather/blob/main/canon/whitebook/DIGUM_Whitebook_FINAL_Corrected_v10.1.pdf"
 
           target="_blank"
           rel="noopener noreferrer"
