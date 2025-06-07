@@ -32,3 +32,4 @@ yarn-error.log*
 /build/
 /node_modules/
 /canon_backup/
+git-filter-repo
