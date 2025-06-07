@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react';
-import './CanonPortal.css'; // Adjust path if needed
+import './CanonPortal.css';
+import KioskBackground from './KioskBackground';
 
 export default function MirrorGatewayAlpha() {
   const backgroundRef = useRef(null);
@@ -45,10 +46,10 @@ export default function MirrorGatewayAlpha() {
   }, []);
 
   return (
-    <div ref={backgroundRef} className="shrine-background">
+    <div className="shrine-container" ref={backgroundRef}>
+      <KioskBackground />
       <canvas ref={particleCanvasRef} width="800" height="400" />
 
-      {/* ✨ Embedded Whitebook Button */}
       <div className="shrine-overlay">
         <a
           href="https://github.com/MikeG73/canonfather/blob/main/DWB_Final_Release.html"
