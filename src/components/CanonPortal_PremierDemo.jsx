@@ -1,5 +1,3 @@
-// CanonPortal_PremierDemo.jsx — FINAL ABSOLUTE FIX
-
 import React, { useState } from 'react';
 import './CanonPortal.css';
 
@@ -18,7 +16,6 @@ const CanonPortalPremierDemo = () => {
         Enter your truthkey to begin your reflection journey.
       </p>
 
-      {/* 👇 THIS IS THE ONLY LINK NOW */}
       <a
         href="https://github.com/MikeG73/canonfather"
         className="whitebook-link-button"
