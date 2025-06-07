@@ -26,7 +26,8 @@ const CanonPortalPremierDemo = () => {
       </form>
 
       <a
-        href="https://raw.githubusercontent.com/MikeG73/canonfather"
+        href="https://github.com/MikeG73/canonfather/blob/main/DWB_Final_Release.html"
+
         target="_blank"
         rel="noopener noreferrer"
         className="whitebook-link-button"
