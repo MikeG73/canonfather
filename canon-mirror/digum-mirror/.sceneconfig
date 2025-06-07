@@ -1,3 +1,0 @@
-strict_mode: true
-allow: ["manual CSS grid", "glyph-based float FX"]
-deny: ["default gradients", "flat UI kits", "React-Bootstrap"]
