@@ -10,7 +10,7 @@ const CanonPortalPremierDemo = () => {
       <input type="text" className="truthkey-input" placeholder="🔑 Enter TruthKey" />
       <button className="truthkey-button">Validate</button>
       <a
-        href="https://raw.githubusercontent.com/MikeG73/thecanonfather/main/public/whitebook/DIGUM_Whitebook_FINAL_Release.pdf"
+        href="https://github.com/MikeG73/canonfather/main/DWB_Final_Release.pdf"
         target="_blank"
         rel="noopener noreferrer"
         className="whitebook-link-button"

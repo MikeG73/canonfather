@@ -52,7 +52,7 @@ export default function MirrorGatewayAlpha() {
       {/* ✨ Embedded Whitebook Button */}
       <div className="shrine-overlay">
         <a
-          href="https://github.com/MikeG73/MikeG73/canonfather"
+          href="https://github.com/MikeG73/canonfather/main/DWB_Final_Release.html"
           target="_blank"
           rel="noopener noreferrer"
           className="whitebook-link-button"
