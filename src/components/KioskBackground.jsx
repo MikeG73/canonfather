@@ -1,8 +1,7 @@
 import React from 'react';
-import sos from '../assets/sos.png'; // ✅ Works 100% in Create React App
 
 const style = {
-  backgroundImage: `url(${sos})`,
+  backgroundImage: "url('/sos.png')",
   backgroundSize: 'cover',
   backgroundPosition: 'center center',
   backgroundRepeat: 'no-repeat',
@@ -17,4 +16,3 @@ const style = {
 export default function KioskBackground() {
   return <div style={style}></div>;
 }
-

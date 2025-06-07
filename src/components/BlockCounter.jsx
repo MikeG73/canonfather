@@ -28,7 +28,8 @@ export default function BlockCounter() {
         <span className="block-hash"># {block}</span>
       </div>
       <img
-        src={require('../assets/sos.png')}
+        src="/sos.png"
+
         alt="SOS Burn"
         className="sos-burn"
       />
