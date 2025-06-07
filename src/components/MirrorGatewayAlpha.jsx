@@ -1,7 +1,8 @@
-// MirrorGatewayAlpha.jsx — CanonLock v1.1 DIGUM Shrine Gateway
+// MirrorGatewayAlpha.jsx — Shrine Gateway v1.1 with Canon Link
 import React, { useEffect, useRef } from 'react';
 import './CanonPortal.css';
 import KioskBackground from './KioskBackground';
+import WhitebookButton from './WhitebookButton';
 
 export default function MirrorGatewayAlpha() {
   const backgroundRef = useRef(null);
@@ -50,17 +51,7 @@ export default function MirrorGatewayAlpha() {
     <div className="shrine-container" ref={backgroundRef}>
       <KioskBackground />
       <canvas ref={particleCanvasRef} width="800" height="400" />
-
-      <div className="shrine-overlay">
-        <a
-          href="https://github.com/MikeG73/canonfather/blob/main/DWB_Final_Release.html"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="whitebook-link-button"
-        >
-          📄 View the DIGUM Whitebook
-        </a>
-      </div>
+      <WhitebookButton />
     </div>
   );
 }

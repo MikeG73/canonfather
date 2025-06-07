@@ -1,4 +1,7 @@
+// CanonPortal_PremierDemo.jsx — FINAL ABSOLUTE FIX
+
 import React, { useState } from 'react';
+import './CanonPortal.css';
 
 const CanonPortalPremierDemo = () => {
   const [truthkey, setTruthkey] = useState('');
@@ -14,29 +17,28 @@ const CanonPortalPremierDemo = () => {
       <p className="truthkey-validation">
         Enter your truthkey to begin your reflection journey.
       </p>
+
+      {/* 👇 THIS IS THE ONLY LINK NOW */}
+      <a
+        href="https://github.com/MikeG73/canonfather"
+        className="whitebook-link-button"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        📘 View the DIGUM Whitebook PDF
+      </a>
+
       <form onSubmit={handleValidate}>
         <input
           type="text"
-          className="truthkey-input"
-          placeholder="🔑 Enter TruthKey"
+          placeholder="Enter your TruthKey"
           value={truthkey}
           onChange={(e) => setTruthkey(e.target.value)}
         />
-        <button type="submit" className="truthkey-button">Validate</button>
+        <button type="submit">Submit</button>
       </form>
-
-      <a
-        href="https://github.com/MikeG73/canonfather/blob/main/DWB_Final_Release.html"
-
-        target="_blank"
-        rel="noopener noreferrer"
-        className="whitebook-link-button"
-      >
-        📘 Open the Whitebook
-      </a>
     </div>
   );
 };
 
 export default CanonPortalPremierDemo;
-
