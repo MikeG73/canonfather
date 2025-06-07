@@ -28,8 +28,7 @@ export default function BlockCounter() {
         <span className="block-hash"># {block}</span>
       </div>
       <img
-        src="/sos.png"
-
+        src={`${process.env.PUBLIC_URL}/sos.png`}
         alt="SOS Burn"
         className="sos-burn"
       />
