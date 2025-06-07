@@ -7,21 +7,20 @@ export default function MirrorGatewayAlpha() {
 
   useEffect(() => {
     const canvas = particleCanvasRef.current;
-    if (!canvas) return;
+    if (!canvas || !backgroundRef.current) return;
 
     const ctx = canvas.getContext('2d');
-    const particles = Array.from({ length: 30 }, () => {
-      const muzzleX = backgroundRef.current?.offsetWidth * 0.72;
-      const muzzleY = backgroundRef.current?.offsetHeight * 0.53;
-      return {
-        x: muzzleX,
-        y: muzzleY,
-        radius: Math.random() * 2 + 1,
-        speedX: Math.random() * 4 - 2,
-        speedY: Math.random() * 4 - 2,
-        alpha: 1
-      };
-    });
+    const muzzleX = backgroundRef.current.offsetWidth * 0.72;
+    const muzzleY = backgroundRef.current.offsetHeight * 0.53;
+
+    const particles = Array.from({ length: 30 }, () => ({
+      x: muzzleX,
+      y: muzzleY,
+      radius: Math.random() * 2 + 1,
+      speedX: Math.random() * 4 - 2,
+      speedY: Math.random() * 4 - 2,
+      alpha: 1
+    }));
 
     const animate = () => {
       if (!ctx) return;
@@ -34,7 +33,7 @@ export default function MirrorGatewayAlpha() {
         if (p.alpha > 0) {
           ctx.beginPath();
           ctx.arc(p.x, p.y, p.radius, 0, 2 * Math.PI);
-          ctx.fillStyle = `rgba(255, 215, 0, ${p.alpha})`;
+          ctx.fillStyle = `rgba(255, 215, 0, ${p.alpha})`; // gold tone
           ctx.fill();
         }
       });
@@ -52,12 +51,12 @@ export default function MirrorGatewayAlpha() {
       {/* ✨ Embedded Whitebook Button */}
       <div className="shrine-overlay">
         <a
-          href="https://github.com/MikeG73/canonfather/main/DWB_Final_Release.html"
+          href="https://github.com/MikeG73/canonfather/blob/main/DWB_Final_Release.html"
           target="_blank"
           rel="noopener noreferrer"
           className="whitebook-link-button"
         >
-          📄 View the DIGUM Whitebook PDF
+          📄 View the DIGUM Whitebook
         </a>
       </div>
     </div>
