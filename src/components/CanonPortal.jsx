@@ -1,4 +1,13 @@
+const [easterEggMode, setEasterEggMode] = useState(false);
 const handleReflect = () => {
+  if (input.trim().toLowerCase() === "yabba daba doooonot") {
+    setResponse("🦴 Fred has been summoned.");
+    new Audio('/flintstone_alert.mp3').play().catch(() => {});
+    setEasterEggMode(true);
+    setInput('');
+    return;
+  }
+
   if (buttonPhase === 1) return;
 
   if (buttonPhase === 2) {
