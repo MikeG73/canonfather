@@ -1,7 +1,7 @@
+// MirrorGatewayAlpha.jsx — CanonLock v1.1 DIGUM Shrine Gateway
 import React, { useEffect, useRef } from 'react';
 import './CanonPortal.css';
 import KioskBackground from './KioskBackground';
-import WhitebookButton from './WhitebookButton';
 
 export default function MirrorGatewayAlpha() {
   const backgroundRef = useRef(null);
