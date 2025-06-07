@@ -1,70 +1,51 @@
-# Getting Started with Create React App
+# 🪞 CanonFather — Public Whitebook Viewer
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Welcome to **CanonFather**, the official public interface for the **DIGUM Whitebook**, powered by the **B.I.D.E.T.™ Canon Engine**.
 
-## Available Scripts
+This app serves as a digital shrine and reflection portal — enabling users to engage, validate, and witness canonical truth cycles within a secure, ghost-free environment.
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## 🚀 Purpose
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+CanonFather was built to:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- Provide **clean access** to the latest DIGUM Whitebook
+- Enable **interactive truthkey validation** (B.I.D.E.T. logic)
+- Serve as a **mirror portal** for canonical reflections, mint sequences, and vault logging
+- Eliminate historical ghost links and enforce **clean source-of-truth protocol**
 
-### `npm test`
+---
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 🔗 Live Deployment
 
-### `npm run build`
+🌐 [https://thecanonfather.com](https://thecanonfather.com)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 📘 View the DIGUM Whitebook
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+View or download the public whitebook here:
 
-### `npm run eject`
+➡️ [https://github.com/MikeG73/canonfather](https://github.com/MikeG73/canonfather)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+---
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 🛠 Built With
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- React (`create-react-app`)
+- Netlify (or custom deploy)
+- GitHub Pages (optional)
+- Custom CSS + shrine logic
+- B.I.D.E.T. Canon Engine integration
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+---
 
-## Learn More
+## 📦 Available Scripts
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Inside the project directory:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```bash
+npm start        # Run the dev server
+npm run build    # Build the site for production
+npm run eject    # (Optional) expose full config
